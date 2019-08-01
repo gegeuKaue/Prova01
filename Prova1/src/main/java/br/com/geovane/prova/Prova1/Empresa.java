@@ -21,7 +21,7 @@ public class Empresa {
 	@Override
 	public String toString() {
 		return "Empresa [nome=" + nome + ", email=" + email + ", cnpj=" + cnpj + ", \nendereco=" + endereco
-				+ "\n, listaAluno=" + listaFuncionario + "]";
+				+ "\n]";
 	}
 	public  void addFuncionario(Funcionario funcionario) {
 		this.listaFuncionario.add(funcionario);

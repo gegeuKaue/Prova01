@@ -1,7 +1,6 @@
 package br.com.geovane.prova.Prova1;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.text.ParseException;
 import java.util.Scanner;
 
 /**
@@ -10,11 +9,9 @@ import java.util.Scanner;
  *
  */
 public class App {
-	public static void main(String[] args) {
-		Date date = Calendar.getInstance().getTime();
-		System.out.println(date);
+	public static void main(String[] args) throws ParseException {		
 		// dados dos sistema
-		char resp;
+		byte resp;
 		Scanner entrada = new Scanner(System.in);
 
 		// dados da empresa e do endereco
@@ -46,31 +43,32 @@ public class App {
 		System.out.println("Digite o cep da empresa");
 		cep = entrada.nextLine();
 		empresa = new Empresa(nome, email, cnpj, nomeEndereco, bairro, cidade, cep, numero);
-		System.out.println(empresa);
+		
 		do {
 			menu();
-			resp = entrada.nextLine().charAt(0);
+			resp = Byte.parseByte(entrada.nextLine());
 			switch (resp) {
 			case 1:
 				empresa.addFuncionario(adicionarFuncionario(entrada));
 				break;
 			case 2:
+				System.out.println();
 				empresa.mostrarFuncionario();
 				break;
 			case 3:
 				System.out.println(empresa);
 				break;
-			case 4:
-				continue;
 			}
 		} while (resp != 4);
 		entrada.close();
 	}
 
 	public static void menu() {
+		System.out.println();
+		System.out.println();
 		System.out.println("Digite o número correspondente o que se deseja fazer no sistema");
-		System.out.println("1 - Cadastrar funcionario" + "2 - Ver Inforções de todos os funcionario"
-				+ "3 - Ver Informação da empresa" + "4 - Sair");
+		System.out.println("\n1 - Cadastrar funcionario" + "\n2 - Ver Inforções de todos os funcionario"
+				+ "\n3 - Ver Informação da empresa" + "\n4 - Sair");
 	}
 
 	public static Funcionario adicionarFuncionario(Scanner entrada) {
@@ -91,6 +89,8 @@ public class App {
 		System.out.println("Digite o horário de saída do funcionario");
 		horarioSaida = Float.parseFloat(entrada.nextLine());
 		funcionario = new Funcionario(nomeFuncionario, cargo, idade, horarioEntrada, horarioSaida);
+		
+		System.out.println("Funcionario cadastrado com sucesso!!!");
 		return funcionario;
 	}
 

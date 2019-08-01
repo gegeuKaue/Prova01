@@ -1,6 +1,5 @@
 package br.com.geovane.prova.Prova1;
 
-import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.runner.RunWith;
