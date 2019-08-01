@@ -1,5 +1,7 @@
 package br.com.geovane.prova.Prova1;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -9,7 +11,8 @@ import java.util.Scanner;
  */
 public class App {
 	public static void main(String[] args) {
-		
+		Date date = Calendar.getInstance().getTime();
+		System.out.println(date);
 		// dados dos sistema
 		char resp;
 		Scanner entrada = new Scanner(System.in);
