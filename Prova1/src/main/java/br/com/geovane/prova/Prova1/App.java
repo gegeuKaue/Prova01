@@ -61,6 +61,7 @@ public class App {
 				continue;
 			}
 		} while (resp != 4);
+		entrada.close();
 	}
 
 	public static void menu() {
