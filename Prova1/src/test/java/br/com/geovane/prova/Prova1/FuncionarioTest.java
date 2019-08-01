@@ -23,10 +23,6 @@ public class FuncionarioTest extends TestCase {
 		assertEquals(horarioSaida, funcionario.getHorarioSaida());
 		
 	}
-	@Test
-	public void test() {
-		
-	}
 
 	
 }
