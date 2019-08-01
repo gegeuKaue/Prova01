@@ -57,6 +57,36 @@ public class Funcionario {
 			return false;
 		return true;
 	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getCargo() {
+		return cargo;
+	}
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+	public short getIdade() {
+		return idade;
+	}
+	public void setIdade(short idade) {
+		this.idade = idade;
+	}
+	public float getHorarioEntrada() {
+		return horarioEntrada;
+	}
+	public void setHorarioEntrada(float horarioEntrada) {
+		this.horarioEntrada = horarioEntrada;
+	}
+	public float getHorarioSaida() {
+		return horarioSaida;
+	}
+	public void setHorarioSaida(float horarioSaida) {
+		this.horarioSaida = horarioSaida;
+	}
 	
  	
 }

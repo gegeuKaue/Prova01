@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class App {
 	public static void main(String[] args) {
-
+		
 		// dados dos sistema
 		char resp;
 		Scanner entrada = new Scanner(System.in);
