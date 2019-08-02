@@ -18,18 +18,42 @@ public class Empresa {
 		endereco = new Endereco(nomeEndereco, bairro, cidade, cep, numero);
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
 	@Override
 	public String toString() {
-		return "Empresa [nome=" + nome + ", email=" + email + ", cnpj=" + cnpj + ", \nendereco=" + endereco
-				+ "\n]";
+		return "Empresa [nome=" + nome + ", email=" + email + ", cnpj=" + cnpj + ", \nendereco=" + endereco + "\n]";
 	}
-	public  void addFuncionario(Funcionario funcionario) {
+
+	public void addFuncionario(Funcionario funcionario) {
 		this.listaFuncionario.add(funcionario);
 	}
 
 	public void mostrarFuncionario() {
-		for(Funcionario funcionario : this.listaFuncionario)
-			System.out.println(funcionario);	
+		for (Funcionario funcionario : this.listaFuncionario)
+			System.out.println(funcionario);
 	}
 
 	@Override
@@ -80,8 +104,22 @@ public class Empresa {
 			return false;
 		return true;
 	}
+
 	public Funcionario getFuncionario(int index) {
 		return listaFuncionario.get(index);
 	}
 
+	public ArrayList<Funcionario> getListFuncionario() {
+		// TODO Auto-generated method stub
+		return listaFuncionario;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public Endereco getEndereco() {
+		return this.endereco;
+	}
+	
 }
