@@ -80,5 +80,8 @@ public class Empresa {
 			return false;
 		return true;
 	}
+	public Funcionario getFuncionario(int index) {
+		return listaFuncionario.get(index);
+	}
 
 }
