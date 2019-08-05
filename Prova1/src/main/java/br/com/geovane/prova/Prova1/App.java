@@ -9,8 +9,8 @@ import java.util.Scanner;
  *
  */
 public class App {
-	public static void main(String[] args) throws ParseException {		
-		
+	public static void main(String[] args) throws ParseException {
+
 		// dados dos sistema
 		byte resp;
 		Scanner entrada = new Scanner(System.in);
@@ -44,11 +44,13 @@ public class App {
 		System.out.println("Digite o cep da empresa");
 		cep = entrada.nextLine();
 		empresa = new Empresa(nome, email, cnpj, nomeEndereco, bairro, cidade, cep, numero);
-		
+
 		do {
 			menu();
 			resp = Byte.parseByte(entrada.nextLine());
+			System.out.println("-------------------------------------------------------");
 			switch (resp) {
+
 			case 1:
 				empresa.addFuncionario(adicionarFuncionario(entrada));
 				break;
@@ -90,7 +92,7 @@ public class App {
 		System.out.println("Digite o horário de saída do funcionario");
 		horarioSaida = Float.parseFloat(entrada.nextLine());
 		funcionario = new Funcionario(nomeFuncionario, cargo, idade, horarioEntrada, horarioSaida);
-		
+
 		System.out.println("Funcionario cadastrado com sucesso!!!");
 		return funcionario;
 	}

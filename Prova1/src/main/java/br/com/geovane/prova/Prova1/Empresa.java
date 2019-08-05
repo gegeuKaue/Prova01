@@ -44,7 +44,8 @@ public class Empresa {
 
 	@Override
 	public String toString() {
-		return "Empresa [nome=" + nome + ", email=" + email + ", cnpj=" + cnpj + ", \nendereco=" + endereco + "\n]";
+		return "Empresa: " + this.nome + "\n" + "Email: " + this.email + "\n" + "CNPJ: " + this.cnpj + "\n"
+				+ "Endereço " + this.endereco;
 	}
 
 	public void addFuncionario(Funcionario funcionario) {
@@ -121,5 +122,5 @@ public class Empresa {
 	public Endereco getEndereco() {
 		return this.endereco;
 	}
-	
+
 }

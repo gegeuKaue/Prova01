@@ -6,6 +6,7 @@ public class Funcionario {
 	private int idade;
 	private double horarioEntrada;
 	private double horarioSaida;
+
 	public Funcionario(String nome, String cargo, int idade, double horarioEntrada, double horarioSaida) {
 		super();
 		this.nome = nome;
@@ -14,12 +15,14 @@ public class Funcionario {
 		this.horarioEntrada = horarioEntrada;
 		this.horarioSaida = horarioSaida;
 	}
+
 	@Override
 	public String toString() {
-		return "Funcionario [nome=" + nome + ", cargo=" + cargo + ", idade=" + idade + ", horarioEntrada="
-				+ horarioEntrada + ", horarioSaida=" + horarioSaida + "]";
+
+		return "Nome: " + this.nome + "\n" + "Cargo: " + this.cargo + "\n" + "Idade: " + this.idade + "\n" + "Horário: "
+				+ this.horarioEntrada + "h ás " + this.horarioSaida + "h";
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -34,6 +37,7 @@ public class Funcionario {
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -61,36 +65,45 @@ public class Funcionario {
 			return false;
 		return true;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getCargo() {
 		return cargo;
 	}
+
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
+
 	public int getIdade() {
 		return idade;
 	}
+
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
+
 	public double getHorarioEntrada() {
 		return horarioEntrada;
 	}
+
 	public void setHorarioEntrada(double horarioEntrada) {
 		this.horarioEntrada = horarioEntrada;
 	}
+
 	public double getHorarioSaida() {
 		return horarioSaida;
 	}
+
 	public void setHorarioSaida(double horarioSaida) {
 		this.horarioSaida = horarioSaida;
 	}
-	
- 	
+
 }
