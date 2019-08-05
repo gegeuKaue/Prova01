@@ -10,7 +10,7 @@ public class Empresa {
 	private ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
 
 	public Empresa(String nome, String email, String cnpj, String nomeEndereco, String bairro, String cidade,
-			String cep, short numero) {
+			String cep, int numero) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -110,7 +110,7 @@ public class Empresa {
 	}
 
 	public ArrayList<Funcionario> getListFuncionario() {
-		// TODO Auto-generated method stub
+
 		return listaFuncionario;
 	}
 

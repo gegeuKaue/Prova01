@@ -3,10 +3,10 @@ package br.com.geovane.prova.Prova1;
 public class Funcionario {
 	private String nome;
 	private String cargo;
-	private short idade;
-	private float horarioEntrada;
-	private float horarioSaida;
-	public Funcionario(String nome, String cargo, short idade, float horarioEntrada, float horarioSaida) {
+	private int idade;
+	private double horarioEntrada;
+	private double horarioSaida;
+	public Funcionario(String nome, String cargo, int idade, double horarioEntrada, double horarioSaida) {
 		super();
 		this.nome = nome;
 		this.cargo = cargo;
@@ -19,13 +19,17 @@ public class Funcionario {
 		return "Funcionario [nome=" + nome + ", cargo=" + cargo + ", idade=" + idade + ", horarioEntrada="
 				+ horarioEntrada + ", horarioSaida=" + horarioSaida + "]";
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
-		result = prime * result + Float.floatToIntBits(horarioEntrada);
-		result = prime * result + Float.floatToIntBits(horarioSaida);
+		long temp;
+		temp = Double.doubleToLongBits(horarioEntrada);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(horarioSaida);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + idade;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
@@ -44,9 +48,9 @@ public class Funcionario {
 				return false;
 		} else if (!cargo.equals(other.cargo))
 			return false;
-		if (Float.floatToIntBits(horarioEntrada) != Float.floatToIntBits(other.horarioEntrada))
+		if (Double.doubleToLongBits(horarioEntrada) != Double.doubleToLongBits(other.horarioEntrada))
 			return false;
-		if (Float.floatToIntBits(horarioSaida) != Float.floatToIntBits(other.horarioSaida))
+		if (Double.doubleToLongBits(horarioSaida) != Double.doubleToLongBits(other.horarioSaida))
 			return false;
 		if (idade != other.idade)
 			return false;
@@ -69,22 +73,22 @@ public class Funcionario {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
-	public short getIdade() {
+	public int getIdade() {
 		return idade;
 	}
-	public void setIdade(short idade) {
+	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-	public float getHorarioEntrada() {
+	public double getHorarioEntrada() {
 		return horarioEntrada;
 	}
-	public void setHorarioEntrada(float horarioEntrada) {
+	public void setHorarioEntrada(double horarioEntrada) {
 		this.horarioEntrada = horarioEntrada;
 	}
-	public float getHorarioSaida() {
+	public double getHorarioSaida() {
 		return horarioSaida;
 	}
-	public void setHorarioSaida(float horarioSaida) {
+	public void setHorarioSaida(double horarioSaida) {
 		this.horarioSaida = horarioSaida;
 	}
 	
