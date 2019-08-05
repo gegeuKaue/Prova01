@@ -1,5 +1,6 @@
 package br.com.geovane.prova.Prova1;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Scanner;
  *
  */
 public class App {
-	public static void main(String[] args) {		
+	public static void main(String[] args) throws ParseException {		
 		
 		// dados dos sistema
 		byte resp;
@@ -17,7 +18,7 @@ public class App {
 		// dados da empresa e do endereco
 		Empresa empresa;
 		String nome, email, cnpj, nomeEndereco, bairro, cidade, cep;
-		int numero;
+		short numero;
 
 		System.out.println("Digite o nome da empresa");
 		nome = entrada.nextLine();
@@ -38,7 +39,7 @@ public class App {
 		cidade = entrada.nextLine();
 
 		System.out.println("Digite o número da rua da empresa");
-		numero = Integer.parseInt(entrada.nextLine());
+		numero = Short.parseShort(entrada.nextLine());
 
 		System.out.println("Digite o cep da empresa");
 		cep = entrada.nextLine();
@@ -64,6 +65,7 @@ public class App {
 	}
 
 	public static void menu() {
+		System.out.println();
 		System.out.println();
 		System.out.println("Digite o número correspondente o que se deseja fazer no sistema");
 		System.out.println("\n1 - Cadastrar funcionario" + "\n2 - Ver Inforções de todos os funcionario"
