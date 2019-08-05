@@ -1,16 +1,17 @@
 package br.com.geovane.prova.Prova1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Empresa {
 	private String nome;
 	private String email;
 	private String cnpj;
 	private Endereco endereco;
-	private ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
+	private List<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
 
 	public Empresa(String nome, String email, String cnpj, String nomeEndereco, String bairro, String cidade,
-			String cep, short numero) {
+			String cep, int numero) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -44,7 +45,8 @@ public class Empresa {
 
 	@Override
 	public String toString() {
-		return "Empresa [nome=" + nome + ", email=" + email + ", cnpj=" + cnpj + ", \nendereco=" + endereco + "\n]";
+		return "Empresa: " + this.nome + "\n" + "Email: " + this.email + "\n" + "CNPJ: " + this.cnpj + "\n"
+				+ "Endereco \n" + this.endereco;
 	}
 
 	public void addFuncionario(Funcionario funcionario) {
@@ -52,8 +54,9 @@ public class Empresa {
 	}
 
 	public void mostrarFuncionario() {
+		System.out.println("-------------------------------------------------------------");
 		for (Funcionario funcionario : this.listaFuncionario)
-			System.out.println(funcionario);
+			System.out.println("\n" + funcionario);
 	}
 
 	@Override
@@ -109,8 +112,7 @@ public class Empresa {
 		return listaFuncionario.get(index);
 	}
 
-	public ArrayList<Funcionario> getListFuncionario() {
-		// TODO Auto-generated method stub
+	public List<Funcionario> getListFuncionario() {
 		return listaFuncionario;
 	}
 
@@ -121,5 +123,5 @@ public class Empresa {
 	public Endereco getEndereco() {
 		return this.endereco;
 	}
-	
+
 }

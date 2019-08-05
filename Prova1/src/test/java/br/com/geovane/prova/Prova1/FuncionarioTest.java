@@ -13,7 +13,7 @@ public class FuncionarioTest extends TestCase {
 	@ParameterizedTest
 	@CsvSource({ "Geovane Kaue Santos, Estagiário, 19, 9.0, 16.0" })
 	public void verificar_se_os_dados_criados_foram_armazenado_com_sucesso(String nome, String cargo, short idade,
-			float horarioEntrada, float horarioSaida) {
+			double horarioEntrada, double horarioSaida) {
 		Funcionario funcionario = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
 		assertEquals(nome, funcionario.getNome());
 		assertEquals(cargo, funcionario.getCargo());

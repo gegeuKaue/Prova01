@@ -5,8 +5,9 @@ public class Endereco {
 	private String bairro;
 	private String cidade;
 	private String cep;
-	private short numero;
-	public Endereco(String nome, String bairro, String cidade, String cep, short numero) {
+	private int numero;
+
+	public Endereco(String nome, String bairro, String cidade, String cep, int numero) {
 		super();
 		this.nome = nome;
 		this.bairro = bairro;
@@ -14,11 +15,13 @@ public class Endereco {
 		this.cep = cep;
 		this.numero = numero;
 	}
+
 	@Override
 	public String toString() {
-		return "Endereco [nome=" + nome + ", bairro=" + bairro + ", cidade=" + cidade + ", cep=" + cep + ", numero="
-				+ numero + "]";
+		return "Rua: " + this.nome + "\n" + "Bairro: " + this.bairro + "\n" + "Cidade: " + this.cidade + "\n"
+				+ "CEP: " + this.cep + "\n" + "Número: " + this.numero;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -30,6 +33,7 @@ public class Endereco {
 		result = prime * result + numero;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -63,36 +67,45 @@ public class Endereco {
 			return false;
 		return true;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getBairro() {
 		return bairro;
 	}
+
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
+
 	public String getCidade() {
 		return cidade;
 	}
+
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
+
 	public String getCep() {
 		return cep;
 	}
+
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-	public short getNumero() {
+
+	public int getNumero() {
 		return numero;
 	}
-	public void setNumero(short numero) {
+
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	
-	
+
 }
