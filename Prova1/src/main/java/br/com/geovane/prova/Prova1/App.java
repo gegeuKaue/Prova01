@@ -62,6 +62,8 @@ public class App {
 				System.out.println(empresa);
 				break;
 			}
+			System.out.println("-------------------------------------------------------");
+
 		} while (resp != 4);
 		entrada.close();
 	}

@@ -53,6 +53,10 @@ public class Empresa {
 	}
 
 	public void mostrarFuncionario() {
+		if (this.listaFuncionario.size() == 0) {
+			System.out.println("Não tem funcionario cadastrado!!!");
+			return;
+		}
 		for (Funcionario funcionario : this.listaFuncionario)
 			System.out.println(funcionario);
 	}
