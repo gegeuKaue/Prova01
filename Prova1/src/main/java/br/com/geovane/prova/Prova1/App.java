@@ -17,7 +17,7 @@ public class App {
 		// dados da empresa e do endereco
 		Empresa empresa;
 		String nome, email, cnpj, nomeEndereco, bairro, cidade, cep;
-		short numero;
+		int numero;
 
 		System.out.println("Digite o nome da empresa");
 		nome = entrada.nextLine();
@@ -38,7 +38,7 @@ public class App {
 		cidade = entrada.nextLine();
 
 		System.out.println("Digite o número da rua da empresa");
-		numero = Short.parseShort(entrada.nextLine());
+		numero = Integer.parseInt(entrada.nextLine());
 
 		System.out.println("Digite o cep da empresa");
 		cep = entrada.nextLine();
@@ -75,19 +75,30 @@ public class App {
 		// dados dos funcionario
 		Funcionario funcionario;
 		String nomeFuncionario, cargo;
-		short idade;
-		float horarioEntrada;
-		float horarioSaida;
+		int idade;
+		double horarioEntrada;
+		double horarioSaida;
 		System.out.println("Digite o nome do funcionario");
 		nomeFuncionario = entrada.nextLine();
+		
 		System.out.println("Digite o cargo do funcionario");
 		cargo = entrada.nextLine();
+		
 		System.out.println("Digite a idade do funcionario");
-		idade = Short.parseShort(entrada.nextLine());
+		do {
+			idade = Integer.parseInt(entrada.nextLine());
+			if (idade < 0) {
+				System.out.println("Digite uma idade valida!!!");
+				System.out.println("Digite a idade do funcionario");
+			}
+		} while (idade < 0);
+
 		System.out.println("Digite o horário de entrada do funcionario");
-		horarioEntrada = Float.parseFloat(entrada.nextLine());
+		horarioEntrada = Double.parseDouble(entrada.nextLine());
+		
 		System.out.println("Digite o horário de saída do funcionario");
-		horarioSaida = Float.parseFloat(entrada.nextLine());
+		horarioSaida = Double.parseDouble(entrada.nextLine());
+		
 		funcionario = new Funcionario(nomeFuncionario, cargo, idade, horarioEntrada, horarioSaida);
 
 		System.out.println("Funcionario cadastrado com sucesso!!!");

@@ -26,6 +26,7 @@ public class EnderecoTest {
 		Endereco end = new Endereco(nome, bairro, cidade, cep, numero);
 		// o número da casa é diferente
 		Endereco end2 = new Endereco(nome, bairro, cidade, cep, 369);
-		Assert.assertThat(1+end.hashCode(), is(not(end2.hashCode())));
+		Assert.assertThat(1 + end.hashCode(), is(not(end2.hashCode())));
 	}
+	
 }

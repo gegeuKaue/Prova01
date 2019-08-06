@@ -5,36 +5,36 @@ package br.com.geovane.prova.Prova1;
  * The Class Funcionario.
  */
 public class Funcionario {
-	
+
 	/** The nome. */
 	private String nome;
-	
+
 	/** The cargo. */
 	private String cargo;
-	
+
 	/** The idade. */
 	private int idade;
-	
+
 	/** The horario entrada. */
 	private double horarioEntrada;
-	
+
 	/** The horario saida. */
 	private double horarioSaida;
 
 	/**
 	 * Instantiates a new funcionario.
 	 *
-	 * @param nome the nome
-	 * @param cargo the cargo
-	 * @param idade the idade
+	 * @param nome           the nome
+	 * @param cargo          the cargo
+	 * @param idade          the idade
 	 * @param horarioEntrada the horario entrada
-	 * @param horarioSaida the horario saida
+	 * @param horarioSaida   the horario saida
 	 */
 	public Funcionario(String nome, String cargo, int idade, double horarioEntrada, double horarioSaida) {
 		super();
 		this.nome = nome;
 		this.cargo = cargo;
-		this.idade = idade;
+		this.setIdade(idade);
 		this.horarioEntrada = horarioEntrada;
 		this.horarioSaida = horarioSaida;
 	}
@@ -47,8 +47,8 @@ public class Funcionario {
 	@Override
 	public String toString() {
 
-		return "\tNome: \t" + this.nome + "\n\t" + "Cargo: \t" + this.cargo + "\n" + "\tIdade: \t" + this.idade + "\n" + "\tHorário: "
-				+ this.horarioEntrada + "h ás " + this.horarioSaida + "h";
+		return "\tNome: \t" + this.nome + "\n\t" + "Cargo: \t" + this.cargo + "\n" + "\tIdade: \t" + this.idade + "\n"
+				+ "\tHorário: " + this.horarioEntrada + "h ás " + this.horarioSaida + "h";
 	}
 
 	/**
@@ -156,6 +156,8 @@ public class Funcionario {
 	 * @param idade the new idade
 	 */
 	public void setIdade(int idade) {
+		if (idade < 0)
+			throw new IllegalArgumentException("Não existe idade negativa");
 		this.idade = idade;
 	}
 
@@ -174,7 +176,10 @@ public class Funcionario {
 	 * @param horarioEntrada the new horario entrada
 	 */
 	public void setHorarioEntrada(double horarioEntrada) {
-		this.horarioEntrada = horarioEntrada;
+		if (horarioEntrada >= 0 && horarioEntrada < 24) {
+			this.horarioEntrada = horarioEntrada;
+		}
+		throw new IllegalArgumentException("Digite um horario entre 0h a 24h");
 	}
 
 	/**
@@ -192,7 +197,10 @@ public class Funcionario {
 	 * @param horarioSaida the new horario saida
 	 */
 	public void setHorarioSaida(double horarioSaida) {
-		this.horarioSaida = horarioSaida;
+		if (horarioEntrada >= 0 && horarioEntrada < 24) {
+			this.horarioSaida = horarioSaida;
+		}
+		throw new IllegalArgumentException("O horario deve ser entre 0h a 24h");
 	}
 
 }

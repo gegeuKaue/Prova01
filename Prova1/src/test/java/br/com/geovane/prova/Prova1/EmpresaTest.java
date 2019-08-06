@@ -12,15 +12,11 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
 
 import com.google.common.collect.Lists;
 
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@RunWith(value = Suite.class)
-@SuiteClasses({ FuncionarioTest.class, EnderecoTest.class })
 public class EmpresaTest {
 	Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",
 			"Res. Flamboyant", "São Paulo", "08588145", 4);
