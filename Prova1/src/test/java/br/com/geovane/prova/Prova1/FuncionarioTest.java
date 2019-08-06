@@ -6,10 +6,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -50,6 +52,7 @@ public class FuncionarioTest {
 
 	@Test
 	@AfterEach
+	@Disabled
 	public void deverar_retornar_falso_se_o_hashCode_caso_as_classe_seja_diferente() {
 		String nome = "Geovane Kaue Santos", cargo = "Estagiario";
 		int idade = 28;
@@ -72,24 +75,26 @@ public class FuncionarioTest {
 			fun.setIdade(18);
 		});
 	}
+
 	@Test
 	@Order(3)
 	public void deverar_dar_erro_de_argumento_por_receber_um_horario_de_entrada_que_nao_for_entre_0_a_24() {
 		String nome = "Geovane Kaue Santos", cargo = "Estagiario";
 		int idade = -15;
 		double horarioEntrada = 25, horarioSaida = 16.0;
-		assertThrows(IllegalArgumentException.class, () ->{
+		assertThrows(IllegalArgumentException.class, () -> {
 			Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
 			fun.setHorarioEntrada(horarioEntrada);
 		});
 	}
+
 	@Test
 	@Order(4)
 	public void deverar_dar_erro_de_argumento_por_receber_um_horario_de_saida_que_nao_for_entre_0_a_24() {
 		String nome = "Geovane Kaue Santos", cargo = "Estagiario";
 		int idade = -15;
 		double horarioEntrada = 9.0, horarioSaida = -1;
-		assertThrows(IllegalArgumentException.class, () ->{
+		assertThrows(IllegalArgumentException.class, () -> {
 			Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
 			fun.setHorarioEntrada(horarioEntrada);
 		});

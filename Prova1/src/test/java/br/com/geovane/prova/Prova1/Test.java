@@ -6,6 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitPlatform.class)
 @SelectClasses({ EmpresaTest.class, FuncionarioTest.class, EnderecoTest.class })
-class AppTest {
+class Test {
 
 }

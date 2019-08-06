@@ -28,6 +28,9 @@ public class App {
 		System.out.println("Digite o cnpj da empresa");
 		cnpj = entrada.nextLine();
 
+		System.out.println("Digite o cep da empresa");
+		cep = entrada.nextLine();
+
 		System.out.println("Digite o nome da rua da empresa");
 		nomeEndereco = entrada.nextLine();
 
@@ -40,8 +43,6 @@ public class App {
 		System.out.println("Digite o número da rua da empresa");
 		numero = Integer.parseInt(entrada.nextLine());
 
-		System.out.println("Digite o cep da empresa");
-		cep = entrada.nextLine();
 		empresa = new Empresa(nome, email, cnpj, nomeEndereco, bairro, cidade, cep, numero);
 
 		do {
@@ -80,10 +81,10 @@ public class App {
 		double horarioSaida;
 		System.out.println("Digite o nome do funcionario");
 		nomeFuncionario = entrada.nextLine();
-		
+
 		System.out.println("Digite o cargo do funcionario");
 		cargo = entrada.nextLine();
-		
+
 		System.out.println("Digite a idade do funcionario");
 		do {
 			idade = Integer.parseInt(entrada.nextLine());
@@ -95,10 +96,10 @@ public class App {
 
 		System.out.println("Digite o horário de entrada do funcionario");
 		horarioEntrada = Double.parseDouble(entrada.nextLine());
-		
+
 		System.out.println("Digite o horário de saída do funcionario");
 		horarioSaida = Double.parseDouble(entrada.nextLine());
-		
+
 		funcionario = new Funcionario(nomeFuncionario, cargo, idade, horarioEntrada, horarioSaida);
 
 		System.out.println("Funcionario cadastrado com sucesso!!!");
