@@ -2,10 +2,7 @@ package br.com.geovane.prova.Prova1;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;

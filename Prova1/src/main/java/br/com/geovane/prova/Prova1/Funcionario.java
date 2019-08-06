@@ -1,12 +1,35 @@
 package br.com.geovane.prova.Prova1;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Funcionario.
+ */
 public class Funcionario {
+	
+	/** The nome. */
 	private String nome;
+	
+	/** The cargo. */
 	private String cargo;
+	
+	/** The idade. */
 	private int idade;
+	
+	/** The horario entrada. */
 	private double horarioEntrada;
+	
+	/** The horario saida. */
 	private double horarioSaida;
 
+	/**
+	 * Instantiates a new funcionario.
+	 *
+	 * @param nome the nome
+	 * @param cargo the cargo
+	 * @param idade the idade
+	 * @param horarioEntrada the horario entrada
+	 * @param horarioSaida the horario saida
+	 */
 	public Funcionario(String nome, String cargo, int idade, double horarioEntrada, double horarioSaida) {
 		super();
 		this.nome = nome;
@@ -16,6 +39,11 @@ public class Funcionario {
 		this.horarioSaida = horarioSaida;
 	}
 
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
 	@Override
 	public String toString() {
 
@@ -23,6 +51,11 @@ public class Funcionario {
 				+ this.horarioEntrada + "h ás " + this.horarioSaida + "h";
 	}
 
+	/**
+	 * Hash code.
+	 *
+	 * @return the int
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -38,6 +71,12 @@ public class Funcionario {
 		return result;
 	}
 
+	/**
+	 * Equals.
+	 *
+	 * @param obj the obj
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -66,42 +105,92 @@ public class Funcionario {
 		return true;
 	}
 
+	/**
+	 * Gets the nome.
+	 *
+	 * @return the nome
+	 */
 	public String getNome() {
 		return nome;
 	}
 
+	/**
+	 * Sets the nome.
+	 *
+	 * @param nome the new nome
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	/**
+	 * Gets the cargo.
+	 *
+	 * @return the cargo
+	 */
 	public String getCargo() {
 		return cargo;
 	}
 
+	/**
+	 * Sets the cargo.
+	 *
+	 * @param cargo the new cargo
+	 */
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
 
+	/**
+	 * Gets the idade.
+	 *
+	 * @return the idade
+	 */
 	public int getIdade() {
 		return idade;
 	}
 
+	/**
+	 * Sets the idade.
+	 *
+	 * @param idade the new idade
+	 */
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
 
+	/**
+	 * Gets the horario entrada.
+	 *
+	 * @return the horario entrada
+	 */
 	public double getHorarioEntrada() {
 		return horarioEntrada;
 	}
 
+	/**
+	 * Sets the horario entrada.
+	 *
+	 * @param horarioEntrada the new horario entrada
+	 */
 	public void setHorarioEntrada(double horarioEntrada) {
 		this.horarioEntrada = horarioEntrada;
 	}
 
+	/**
+	 * Gets the horario saida.
+	 *
+	 * @return the horario saida
+	 */
 	public double getHorarioSaida() {
 		return horarioSaida;
 	}
 
+	/**
+	 * Sets the horario saida.
+	 *
+	 * @param horarioSaida the new horario saida
+	 */
 	public void setHorarioSaida(double horarioSaida) {
 		this.horarioSaida = horarioSaida;
 	}
