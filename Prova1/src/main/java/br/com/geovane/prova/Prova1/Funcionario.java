@@ -47,7 +47,7 @@ public class Funcionario {
 	@Override
 	public String toString() {
 
-		return "Nome: " + this.nome + "\n" + "Cargo: " + this.cargo + "\n" + "Idade: " + this.idade + "\n" + "Horário: "
+		return "\tNome: \t" + this.nome + "\n\t" + "Cargo: \t" + this.cargo + "\n" + "\tIdade: \t" + this.idade + "\n" + "\tHorário: "
 				+ this.horarioEntrada + "h ás " + this.horarioSaida + "h";
 	}
 

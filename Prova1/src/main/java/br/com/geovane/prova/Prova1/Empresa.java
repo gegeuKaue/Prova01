@@ -107,8 +107,8 @@ public class Empresa {
 	 */
 	@Override
 	public String toString() {
-		return "Empresa: " + this.nome + "\n" + "Email: " + this.email + "\n" + "CNPJ: " + this.cnpj + "\n"
-				+ "Endereço " + this.endereco;
+		return "\t" + this.nome + "\n" + "\tEmail: \t" + this.email + "\n" + "\tCNPJ: \t" + this.cnpj + "\n"
+				+ "\tEndereço \n" + this.endereco;
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class Empresa {
 			return;
 		}
 		for (Funcionario funcionario : this.listaFuncionario)
-			System.out.println(funcionario);
+			System.out.println(funcionario+"\n");
 	}
 
 	/**

@@ -1,6 +1,5 @@
 package br.com.geovane.prova.Prova1;
 
-import java.text.ParseException;
 import java.util.Scanner;
 
 /**
@@ -9,7 +8,7 @@ import java.util.Scanner;
  *
  */
 public class App {
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) {
 
 		// dados dos sistema
 		byte resp;
@@ -47,30 +46,26 @@ public class App {
 
 		do {
 			menu();
-			resp = Byte.parseByte(entrada.nextLine());
-			System.out.println("-------------------------------------------------------");
-			switch (resp) {
 
-			case 1:
-				empresa.addFuncionario(adicionarFuncionario(entrada));
-				break;
-			case 2:
-				System.out.println();
-				empresa.mostrarFuncionario();
-				break;
-			case 3:
-				System.out.println(empresa);
-				break;
-			}
+			resp = Byte.parseByte(entrada.nextLine());
+
 			System.out.println("-------------------------------------------------------");
+
+			if (resp == 1) {
+				empresa.addFuncionario(adicionarFuncionario(entrada));
+			} else if (resp == 2) {
+				empresa.mostrarFuncionario();
+			} else if (resp == 3) {
+				System.out.println(empresa);
+			}
+
+			System.out.println("-------------------------------------------------------\n");
 
 		} while (resp != 4);
 		entrada.close();
 	}
 
 	public static void menu() {
-		System.out.println();
-		System.out.println();
 		System.out.println("Digite o número correspondente o que se deseja fazer no sistema");
 		System.out.println("\n1 - Cadastrar funcionario" + "\n2 - Ver Inforções de todos os funcionario"
 				+ "\n3 - Ver Informação da empresa" + "\n4 - Sair");

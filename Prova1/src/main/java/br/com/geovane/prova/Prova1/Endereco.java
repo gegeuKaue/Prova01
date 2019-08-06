@@ -5,29 +5,29 @@ package br.com.geovane.prova.Prova1;
  * The Class Endereco.
  */
 public class Endereco {
-	
+
 	/** The nome. */
 	private String nome;
-	
+
 	/** The bairro. */
 	private String bairro;
-	
+
 	/** The cidade. */
 	private String cidade;
-	
+
 	/** The cep. */
 	private String cep;
-	
+
 	/** The numero. */
 	private int numero;
 
 	/**
 	 * Instantiates a new endereco.
 	 *
-	 * @param nome the nome
+	 * @param nome   the nome
 	 * @param bairro the bairro
 	 * @param cidade the cidade
-	 * @param cep the cep
+	 * @param cep    the cep
 	 * @param numero the numero
 	 */
 	public Endereco(String nome, String bairro, String cidade, String cep, int numero) {
@@ -46,8 +46,8 @@ public class Endereco {
 	 */
 	@Override
 	public String toString() {
-		return  "Rua: " + this.nome + "\n" + "Bairro: " + this.bairro + "\n" + "Cidade: " + this.cidade + "\n"
-				+ "Bairro: " + this.bairro + "\n" + "CEP: " + this.bairro + "\n" + "Número: " + this.bairro;
+		return "\tRua: \t" + this.nome + "\n" + "\tBairro: \t" + this.bairro + "\n\t" + "Cidade: \t" + this.cidade
+				+ "\n" + "\tCEP: \t" + this.bairro + "\n" + "\tNúmero: \t" + this.numero;
 	}
 
 	/**
