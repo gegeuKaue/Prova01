@@ -29,8 +29,7 @@ public class AppTest extends TestCase {
 	 * Rigourous Test :-)
 	 */
 	public void testApp() {
-		new EmpresaTest();
-		new FuncionarioTest();
+	
 		assertTrue(true);
 	}
 }

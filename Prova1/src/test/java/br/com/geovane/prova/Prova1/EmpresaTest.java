@@ -7,29 +7,23 @@ import static org.junit.Assert.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import com.google.common.collect.Lists;
 
-@RunWith(value = JUnit4.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EmpresaTest {
 	Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",
 			"Res. Flamboyant", "São Paulo", "08588145", 4);;
 
-//	@Before
-//	public void valores_empresa() {
-//		System.out.println("Ola");
-//	}
 	
 	@Test
-	@Order(15)
-	public void teste_HashCode_verdadeiro() {
+	@Order(1)
+	public void deverar_o_HashCode_retornar_verdadeiro() {
 		Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",
 				"Res. Flamboyant", "São Paulo", "08588145", 4);
 		Empresa empresa2 = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",
@@ -40,7 +34,7 @@ public class EmpresaTest {
 
 	@Test
 	@Order(2)
-	public void teste_HashCode_falso() {
+	public void deverar_o_HashCode_retornar_falso() {
 		Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",
 				"Res. Flamboyant", "São Paulo", "08588145", 4);
 
@@ -51,6 +45,7 @@ public class EmpresaTest {
 	}
 
 	@Test
+	@Order(3)
 	public void deverar_adicionar_empregado_na_lista_da_empresa() {
 
 		Funcionario fun = new Funcionario("Geovane Kaue", "estagio", 19, 9f, 16f);
@@ -61,6 +56,7 @@ public class EmpresaTest {
 	}
 
 	@Test
+	@Order(4)
 	public void deverar_mudar_o_endereco_da_empresa() {
 		Endereco endereco = new Endereco("Rua Jaboticabeira", "Jardim Caubi", "São Paulo", "0885589", 357);
 		empresa.setEndereco(endereco);
@@ -83,9 +79,11 @@ public class EmpresaTest {
 		assertEquals(empresa.getEndereco().getNumero(), numero);
 	}
 
-	@Test(timeout = 100)
-	@Before
+	@org.junit.Test(timeout = 100)
+	@Order(5)
 	public void deverar_adicionar_1000_funcionario_em_100_milesimo() {
+
+		//assertTimeout(100,empresa.addFuncionario(funcionario) );
 		Funcionario funcionario = new Funcionario("Geovane Kaue Santos", "Estagiário", 19, 9.0, 16.0);
 		int i;
 		for (i = 0; i < 1000; i++)

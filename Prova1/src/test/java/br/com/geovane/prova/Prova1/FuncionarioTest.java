@@ -1,14 +1,16 @@
 package br.com.geovane.prova.Prova1;
 
 import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
-import junit.framework.TestCase;
 
-@RunWith(value = JUnit4.class)
-public class FuncionarioTest extends TestCase {
+//@RunWith(value = JUnit4.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class FuncionarioTest {
 
 	@BeforeClass
 	public static void test() {
@@ -16,8 +18,22 @@ public class FuncionarioTest extends TestCase {
 	}
 
 	@Test
-	public void te() {
-		System.out.println("");
+	@Order(2)
+	@DisplayName("Deverar retornar valor x")
+	public void a() {
+		System.out.println("Primeiro");
+	}
+
+	@Test
+	@Order(3)
+	public void b() {
+		System.out.println("Segundo");
+	}
+
+	@Test
+	@Order(1)
+	public void c() {
+		System.out.println("Terceiro");
 	}
 //	@Test
 //	@ParameterizedTest
