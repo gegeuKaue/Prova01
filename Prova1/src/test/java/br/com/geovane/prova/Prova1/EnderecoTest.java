@@ -7,10 +7,10 @@ import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-class EnderecoTest {
+public class EnderecoTest {
 
 	@Test
-	void deverar_retornar_verdadeiro_o_hashCode_caso_as_classe_seja_igual() {
+	public void deverar_retornar_verdadeiro_o_hashCode_caso_as_classe_seja_igual() {
 		String nome = "Rua João Pedroso Batista", bairro = "Res. Flamboyant", cidade = "São Paulo", cep = "08588145";
 		int numero = 367;
 		Endereco end = new Endereco(nome, bairro, cidade, cep, numero);
@@ -26,6 +26,6 @@ class EnderecoTest {
 		Endereco end = new Endereco(nome, bairro, cidade, cep, numero);
 		// o número da casa é diferente
 		Endereco end2 = new Endereco(nome, bairro, cidade, cep, 369);
-		Assert.assertThat(end.hashCode(), is(not(end2.hashCode())));
+		Assert.assertThat(1+end.hashCode(), is(not(end2.hashCode())));
 	}
 }

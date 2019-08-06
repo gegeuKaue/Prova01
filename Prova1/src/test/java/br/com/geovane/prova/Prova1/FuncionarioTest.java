@@ -14,8 +14,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 //@RunWith(value = JUnit4.class)
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class FuncionarioTest {
+public class FuncionarioTest {
 
 	@Test
 	@Order(1)
@@ -32,10 +33,7 @@ class FuncionarioTest {
 
 		assertThat(horarioEntrada, is(funcionario.getHorarioEntrada()));
 		assertThat(horarioSaida, is(funcionario.getHorarioSaida()));
-
 	}
-
-
 
 	@Test
 	@BeforeEach

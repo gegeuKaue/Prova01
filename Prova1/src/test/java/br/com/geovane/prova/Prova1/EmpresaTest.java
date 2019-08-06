@@ -12,10 +12,15 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
 import com.google.common.collect.Lists;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@RunWith(value = Suite.class)
+@SuiteClasses({ FuncionarioTest.class, EnderecoTest.class })
 public class EmpresaTest {
 	Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",
 			"Res. Flamboyant", "São Paulo", "08588145", 4);
@@ -81,7 +86,8 @@ public class EmpresaTest {
 	@org.junit.Test(timeout = 100)
 	public void deverar_adicionar_1000_funcionario_em_100_milesimo() {
 		Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",
-				"Res. Flamboyant", "São Paulo", "08588145", 4);;
+				"Res. Flamboyant", "São Paulo", "08588145", 4);
+		;
 		// assertTimeout(100,empresa.addFuncionario(funcionario) );
 		Funcionario funcionario = new Funcionario("Geovane Kaue Santos", "Estagiário", 19, 9.0, 16.0);
 		int i;
