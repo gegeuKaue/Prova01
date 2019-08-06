@@ -7,7 +7,7 @@ import static org.junit.Assert.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -18,9 +18,8 @@ import com.google.common.collect.Lists;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EmpresaTest {
 	Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",
-			"Res. Flamboyant", "São Paulo", "08588145", 4);;
+			"Res. Flamboyant", "São Paulo", "08588145", 4);
 
-	
 	@Test
 	@Order(1)
 	public void deverar_o_HashCode_retornar_verdadeiro() {
@@ -64,7 +63,7 @@ public class EmpresaTest {
 	}
 
 	@Test
-	@Before
+	@BeforeEach
 	public void deverar_ter_todos_os_dados_passado_no_construtor() {
 		String nome = "Contmatic", email = "cont@contmatic.com", cnpj = "78954785236", nomeEndereco = "Rua das Frutas",
 				bairro = "Jardim Caiuby", cidade = "São Paulo", cep = "08588145";
@@ -80,14 +79,13 @@ public class EmpresaTest {
 	}
 
 	@org.junit.Test(timeout = 100)
-	@Order(5)
 	public void deverar_adicionar_1000_funcionario_em_100_milesimo() {
-
-		//assertTimeout(100,empresa.addFuncionario(funcionario) );
+		Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",
+				"Res. Flamboyant", "São Paulo", "08588145", 4);;
+		// assertTimeout(100,empresa.addFuncionario(funcionario) );
 		Funcionario funcionario = new Funcionario("Geovane Kaue Santos", "Estagiário", 19, 9.0, 16.0);
 		int i;
 		for (i = 0; i < 1000; i++)
 			empresa.addFuncionario(funcionario);
 	}
-
 }
