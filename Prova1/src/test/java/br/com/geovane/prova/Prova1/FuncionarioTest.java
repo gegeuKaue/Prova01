@@ -6,7 +6,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -29,7 +28,8 @@ public class FuncionarioTest {
 		String nome = "Geovane Kaue Santos", cargo = "Estagiario";
 		int idade = 19;
 		double horarioEntrada = 9.0, horarioSaida = 16.0;
-		Funcionario funcionario = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
+		Funcionario funcionario = new
+				Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
 
 		assertEquals(nome, funcionario.getNome());
 		assertEquals(cargo, funcionario.getCargo());

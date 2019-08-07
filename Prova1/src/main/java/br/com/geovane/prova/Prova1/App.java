@@ -23,6 +23,7 @@ public class App {
 		nome = entrada.nextLine();
 
 		System.out.println("Digite o email da empresa");
+
 		email = entrada.nextLine();
 
 		System.out.println("Digite o cnpj da empresa");

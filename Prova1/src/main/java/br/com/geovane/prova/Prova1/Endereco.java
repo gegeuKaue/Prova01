@@ -1,6 +1,5 @@
 package br.com.geovane.prova.Prova1;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Endereco.
  */
@@ -37,6 +36,7 @@ public class Endereco {
 		this.cidade = cidade;
 		this.cep = cep;
 		this.numero = numero;
+
 	}
 
 	/**
