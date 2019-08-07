@@ -98,21 +98,21 @@ public class App {
 		System.out.println("Digite o horário de entrada do funcionario");
 		do {
 			horarioEntrada = Double.parseDouble(entrada.nextLine());
-			if (horarioEntrada < 0) {
-				System.out.println("Digite um horário entrada entre 0 ate 23h!!!");
+			if (!(horarioEntrada >= 0 && horarioEntrada < 24)) {
+				System.out.println("Digite um horário entrada entre 0 ate 24h!!!");
 				System.out.println("Digite o horário de entrada do funcionario");
 			}
-		} while (horarioEntrada >= 0 && horarioEntrada < 24);
+		} while (!(horarioEntrada >= 0 && horarioEntrada < 24));
 
-		System.out.println("Digite o horário de saída do funcionario");
 		System.out.println("Digite o horário de entrada do funcionario");
+
 		do {
 			horarioSaida = Double.parseDouble(entrada.nextLine());
-			if (horarioSaida < 0) {
-				System.out.println("Digite um horário saída entre 0 ate 23h!!!");
+			if (!(horarioSaida >= 0 && horarioSaida < 24)) {
+				System.out.println("Digite um horário saída entre 0 ate 24h!!!");
 				System.out.println("Digite o horário de saída do funcionario");
 			}
-		} while (horarioSaida >= 0 && horarioSaida < 24);
+		} while (!(horarioSaida >= 0 && horarioSaida < 24));
 
 		funcionario = new Funcionario(nomeFuncionario, cargo, idade, horarioEntrada, horarioSaida);
 
