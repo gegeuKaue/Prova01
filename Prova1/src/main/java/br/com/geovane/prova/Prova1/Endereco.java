@@ -47,7 +47,7 @@ public class Endereco {
 	@Override
 	public String toString() {
 		return "\tRua: \t" + this.nome + "\n" + "\tBairro: \t" + this.bairro + "\n\t" + "Cidade: \t" + this.cidade
-				+ "\n" + "\tCEP: \t" + this.bairro + "\n" + "\tNúmero: \t" + this.numero;
+				+ "\n" + "\tCEP: \t" + this.cep + "\n" + "\tNúmero: \t" + this.numero;
 	}
 
 	/**
