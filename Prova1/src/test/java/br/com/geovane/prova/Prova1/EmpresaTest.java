@@ -2,6 +2,7 @@ package br.com.geovane.prova.Prova1;
 
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
@@ -15,12 +16,12 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import com.google.common.collect.Lists;
 
-
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EmpresaTest {
 	Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",
 			"Res. Flamboyant", "São Paulo", "08588145", 4);
 
+	// Assertions
 	@Test
 	@Order(1)
 	public void deverar_o_HashCode_retornar_verdadeiro() {
@@ -32,6 +33,7 @@ public class EmpresaTest {
 
 	}
 
+	// Assertions
 	@Test
 	@Order(2)
 	public void deverar_o_HashCode_retornar_falso() {
@@ -40,10 +42,10 @@ public class EmpresaTest {
 
 		Empresa empresa2 = new Empresa("Cont", "contmatic@contmatic.com.br", "11111111111", "rua das frutas", "Caiuby",
 				"São Paulo", "08544789", 498);
-		assertEquals(false, empresa.hashCode() == empresa2.hashCode());
-
+		assertFalse(empresa.hashCode() == empresa2.hashCode());
 	}
 
+	// AssertThat
 	@Test
 	@Order(3)
 	public void deverar_adicionar_empregado_na_lista_da_empresa() {
@@ -55,6 +57,7 @@ public class EmpresaTest {
 		assertThat(empresa.getListFuncionario(), hasItems(fun, fun2));
 	}
 
+	// Assertion
 	@Test
 	@Order(4)
 	public void deverar_mudar_o_endereco_da_empresa() {
@@ -63,6 +66,7 @@ public class EmpresaTest {
 		assertEquals(empresa.getEndereco(), endereco);
 	}
 
+	// assert and Before
 	@Test
 	@BeforeEach
 	public void deverar_ter_todos_os_dados_passado_no_construtor() {
@@ -79,6 +83,7 @@ public class EmpresaTest {
 		assertEquals(empresa.getEndereco().getNumero(), numero);
 	}
 
+	// Timeout
 	@org.junit.Test(timeout = 100)
 	public void deverar_adicionar_1000_funcionario_em_100_milesimo() {
 		Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira",

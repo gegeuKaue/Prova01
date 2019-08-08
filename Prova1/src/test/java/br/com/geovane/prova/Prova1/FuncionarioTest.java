@@ -20,7 +20,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FuncionarioTest {
-
+	// assertEquals and assertThat
 	@Test
 	@Order(1)
 	@BeforeAll
@@ -38,6 +38,7 @@ public class FuncionarioTest {
 		assertThat(horarioSaida, is(funcionario.getHorarioSaida()));
 	}
 
+	// assertThat and Before
 	@Test
 	@BeforeEach
 	public void deverar_retornar_verdadeiro_o_hashCode_caso_as_classe_seja_igual() {
@@ -49,6 +50,7 @@ public class FuncionarioTest {
 		assertThat(fun.hashCode(), is(fun2.hashCode()));
 	}
 
+	// AssertThat and After
 	@Test
 	@AfterEach
 	@Disabled
@@ -62,6 +64,7 @@ public class FuncionarioTest {
 		assertThat(fun.hashCode(), is(not(fun2)));
 	}
 
+	// Exception Testing
 	@Test
 	@Order(2)
 	public void deverar_dar_erro_de_argumento_por_receber_idade_negativa() {
@@ -75,6 +78,7 @@ public class FuncionarioTest {
 		});
 	}
 
+	// Exception Testing
 	@Test
 	@Order(3)
 	public void deverar_dar_erro_de_argumento_por_receber_um_horario_de_entrada_que_nao_for_entre_0_a_24() {
@@ -87,6 +91,7 @@ public class FuncionarioTest {
 		});
 	}
 
+	//Exception Testing
 	@Test
 	@Order(4)
 	public void deverar_dar_erro_de_argumento_por_receber_um_horario_de_saida_que_nao_for_entre_0_a_24() {

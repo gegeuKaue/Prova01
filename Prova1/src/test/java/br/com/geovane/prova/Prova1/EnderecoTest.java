@@ -8,7 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 public class EnderecoTest {
-
+	//assertThat
 	@Test
 	public void deverar_retornar_verdadeiro_o_hashCode_caso_as_classe_seja_igual() {
 		String nome = "Rua João Pedroso Batista", bairro = "Res. Flamboyant", cidade = "São Paulo", cep = "08588145";
@@ -18,6 +18,7 @@ public class EnderecoTest {
 		Assert.assertThat(end.hashCode(), is(end2.hashCode()));
 	}
 
+	//assertThat and After
 	@Test
 	@AfterEach
 	public void deverar_retornar_falso_se_o_hashCode_caso_as_classe_seja_diferente() {
