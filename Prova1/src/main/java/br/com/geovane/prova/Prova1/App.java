@@ -1,6 +1,6 @@
 package br.com.geovane.prova.Prova1;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 
@@ -77,7 +77,7 @@ public class App {
     public static Funcionario adicionarFuncionario(Scanner entrada) {
         // dados dos funcionario
         int dia, mes, ano;
-        Calendar dataContratacao = Calendar.getInstance();
+        LocalDate dataContratacao;
 
         Funcionario funcionario;
         String nomeFuncionario, cargo;
@@ -127,7 +127,7 @@ public class App {
         System.out.println("Digite o ano de contratação do funcionario");
         ano = Integer.parseInt(entrada.nextLine());
 
-        dataContratacao.set(ano, mes - 1, dia);
+        dataContratacao = LocalDate.of(ano, mes, dia);
         funcionario = new Funcionario(nomeFuncionario, cargo, idade, horarioEntrada, horarioSaida, dataContratacao);
 
         System.out.println("Funcionario cadastrado com sucesso!!!");

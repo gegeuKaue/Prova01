@@ -1,7 +1,7 @@
 package br.com.geovane.prova.Prova1;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -24,7 +24,7 @@ public class Funcionario {
     private double horarioSaida;
 
     /** The data contratacao. */
-    private Calendar dataContratacao;
+    private LocalDate dataContratacao;
 
     /**
      * Gets the nome.
@@ -77,11 +77,11 @@ public class Funcionario {
      * @param idade the new idade
      */
     public void setIdade(int idade) {
-        if(idade > 0) {
+        if (idade > 0) {
             this.idade = idade;
-        }else
+        } else
             throw new IllegalArgumentException("Não existe idade negativo");
-        
+
     }
 
     /**
@@ -136,7 +136,7 @@ public class Funcionario {
      * @param horarioSaida the horario saida
      * @param dataContratacao the data contratacao
      */
-    public Funcionario(String nome, String cargo, int idade, double horarioEntrada, double horarioSaida, Calendar dataContratacao) {
+    public Funcionario(String nome, String cargo, int idade, double horarioEntrada, double horarioSaida, LocalDate dataContratacao) {
         super();
         this.nome = nome;
         this.cargo = cargo;
@@ -214,10 +214,7 @@ public class Funcionario {
     @Override
     public String toString() {
         // FORMATACAO DA DATA
-        SimpleDateFormat formatacaoData = new SimpleDateFormat("dd/MM/yyyy");
-        formatacaoData.setCalendar(dataContratacao);
-
-        StringBuilder builder = new StringBuilder();
+         StringBuilder builder = new StringBuilder();
 
         // NOME
         builder.append("\tNome \t");
@@ -237,9 +234,9 @@ public class Funcionario {
         builder.append("h ás ");
         builder.append(this.horarioSaida);
         builder.append("h");
-        //DATA
+        // DATA
         builder.append("\n\tData de Contratacao:\t");
-        builder.append(formatacaoData.format(dataContratacao.getTime()));
+        builder.append(this.dataContratacao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 
         return builder.toString();
     }
@@ -249,7 +246,7 @@ public class Funcionario {
      *
      * @return the data contratacao
      */
-    public Calendar getDataContratacao() {
+    public LocalDate getDataContratacao() {
         return dataContratacao;
     }
 
@@ -258,7 +255,7 @@ public class Funcionario {
      *
      * @param dataContratacao the new data contratacao
      */
-    public void setDataContratacao(Calendar dataContratacao) {
+    public void setDataContratacao(LocalDate dataContratacao) {
         this.dataContratacao = dataContratacao;
     }
 }
