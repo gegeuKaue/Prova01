@@ -45,9 +45,27 @@ public class Funcionario {
 	 */
 	@Override
 	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		// NOME
+		builder.append("\tNome \t");
+		builder.append(this.nome);
+		builder.append("\n");
+		// Cargo
+		builder.append("\tCargo \t");
+		builder.append(this.cargo);
+		builder.append("\n");
+		// IDADE
+		builder.append("\tIdade \t");
+		builder.append(this.idade);
+		builder.append("\n");
+		// HORÁRIO
+		builder.append("\tHorário\t");
+		builder.append(this.horarioEntrada);
+		builder.append("h ás ");
+		builder.append(this.horarioSaida);
+		builder.append("h");
 
-		return "\tNome: \t" + this.nome + "\n\t" + "Cargo: \t" + this.cargo + "\n" + "\tIdade: \t" + this.idade + "\n"
-				+ "\tHorário: " + this.horarioEntrada + "h ás " + this.horarioSaida + "h";
+		return builder.toString();
 	}
 
 	/**

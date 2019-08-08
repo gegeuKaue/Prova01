@@ -2,40 +2,39 @@ package br.com.geovane.prova.Prova1;
 
 import java.util.ArrayList;
 
-
 /**
  * The Class Empresa.
  *
  * @author geovane.santos
  */
 public class Empresa {
-	
+
 	/** The nome. */
 	private String nome;
-	
+
 	/** The email. */
 	private String email;
-	
+
 	/** The cnpj. */
 	private String cnpj;
-	
+
 	/** The endereco. */
 	private Endereco endereco;
-	
+
 	/** The lista funcionario. */
 	private ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
 
 	/**
 	 * Instantiates a new empresa.
 	 *
-	 * @param nome the nome
-	 * @param email the email
-	 * @param cnpj the cnpj
+	 * @param nome         the nome
+	 * @param email        the email
+	 * @param cnpj         the cnpj
 	 * @param nomeEndereco the nome endereco
-	 * @param bairro the bairro
-	 * @param cidade the cidade
-	 * @param cep the cep
-	 * @param numero the numero
+	 * @param bairro       the bairro
+	 * @param cidade       the cidade
+	 * @param cep          the cep
+	 * @param numero       the numero
 	 */
 	public Empresa(String nome, String email, String cnpj, String nomeEndereco, String bairro, String cidade,
 			String cep, int numero) {
@@ -107,8 +106,24 @@ public class Empresa {
 	 */
 	@Override
 	public String toString() {
-		return "\t" + this.nome + "\n" + "\tEmail: \t" + this.email + "\n" + "\tCNPJ: \t" + this.cnpj + "\n"
-				+ "\tEndereço \n" + this.endereco;
+		StringBuilder builder = new StringBuilder();
+		// NOME
+		builder.append("\t");
+		builder.append(this.nome);
+		builder.append("\n");
+		// EMAIL
+		builder.append("\tEmail:\t");
+		builder.append(this.email);
+		builder.append("\n");
+		// CNPJ
+		builder.append("\tCNPJ:\t");
+		builder.append(this.cnpj);
+		builder.append("\n");
+		// Endereco
+		builder.append("\tEndereço:\t");
+		builder.append("\n");
+		builder.append(this.endereco);
+		return builder.toString();
 	}
 
 	/**
@@ -129,7 +144,7 @@ public class Empresa {
 			return;
 		}
 		for (Funcionario funcionario : this.listaFuncionario)
-			System.out.println(funcionario+"\n");
+			System.out.println(funcionario + "\n");
 	}
 
 	/**

@@ -46,8 +46,28 @@ public class Endereco {
 	 */
 	@Override
 	public String toString() {
-		return "\tRua: \t" + this.nome + "\n" + "\tBairro: \t" + this.bairro + "\n\t" + "Cidade: \t" + this.cidade
-				+ "\n" + "\tCEP: \t" + this.cep + "\n" + "\tNúmero: \t" + this.numero;
+		StringBuilder builder = new StringBuilder();
+		// RUA
+		builder.append("\tRua:\t");
+		builder.append(this.nome);
+		builder.append('\n');
+		// BAIRRO
+		builder.append("\tBairro:\t");
+		builder.append(this.bairro);
+		builder.append('\n');
+		// CIDADE
+		builder.append("\tCidade:\t");
+		builder.append(this.cidade);
+		builder.append('\n');
+		// CEP
+		builder.append("\tCEP:\t");
+		builder.append(this.cep);
+		builder.append('\n');
+		// NÚMERO
+		builder.append("\tNúmero:\t");
+		builder.append(this.numero);
+		builder.append('\n');
+		return builder.toString();
 	}
 
 	/**
