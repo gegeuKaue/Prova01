@@ -38,7 +38,7 @@ public class Empresa {
 	 */
 	public Empresa(String nome, String email, String cnpj, String nomeEndereco, String bairro, String cidade,
 			String cep, int numero) {
-		super();
+		
 		this.nome = nome;
 		this.email = email;
 		this.cnpj = cnpj;

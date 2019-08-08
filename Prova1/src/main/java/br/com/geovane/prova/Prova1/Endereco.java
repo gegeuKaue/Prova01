@@ -30,7 +30,7 @@ public class Endereco {
 	 * @param numero the numero
 	 */
 	public Endereco(String nome, String bairro, String cidade, String cep, int numero) {
-		super();
+		
 		this.nome = nome;
 		this.bairro = bairro;
 		this.cidade = cidade;

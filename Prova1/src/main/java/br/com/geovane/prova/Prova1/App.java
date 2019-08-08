@@ -3,7 +3,6 @@ package br.com.geovane.prova.Prova1;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-
 /**
  * 
  * @author geovane.santos
@@ -54,13 +53,21 @@ public class App {
             resp = Byte.parseByte(entrada.nextLine());
 
             System.out.println("-------------------------------------------------------");
+            Acao decisaoEnum = Acao.values()[resp-1];
+            switch (decisaoEnum) {
+                case CADASTRAR_FUNCIONARIO:
+                    empresa.addFuncionario(adicionarFuncionario(entrada));
+                    break;
+                case INFO_TODOS_FUNCIONARIO:
+                    empresa.mostrarFuncionario();
+                    break;
+                case INFO_EMPRESA:
+                    System.out.println(empresa);
+                    break;
 
-            if (resp == 1) {
-                empresa.addFuncionario(adicionarFuncionario(entrada));
-            } else if (resp == 2) {
-                empresa.mostrarFuncionario();
-            } else if (resp == 3) {
-                System.out.println(empresa);
+                case SAIR:
+                    System.out.println("Saindo....");
+                    break;
             }
 
             System.out.println("-------------------------------------------------------\n");
@@ -71,7 +78,7 @@ public class App {
 
     public static void menu() {
         System.out.println("Digite o número correspondente o que se deseja fazer no sistema");
-        System.out.println("\n1 - Cadastrar funcionario" + "\n2 - Ver Inforções de todos os funcionario" + "\n3 - Ver Informação da empresa" + "\n4 - Sair");
+        System.out.println("\n1 - Cadastrar funcionario" + "\n2 - Ver Informações de todos os funcionario" + "\n3 - Ver Informação da empresa" + "\n4 - Sair");
     }
 
     public static Funcionario adicionarFuncionario(Scanner entrada) {
@@ -120,7 +127,7 @@ public class App {
 
         System.out.println("Digite da dia de contratação do funcionario");
         dia = Integer.parseInt(entrada.nextLine());
-       
+
         System.out.println("Digite o mês de contratação do funcionario");
         mes = Integer.parseInt(entrada.nextLine());
 

@@ -137,7 +137,7 @@ public class Funcionario {
      * @param dataContratacao the data contratacao
      */
     public Funcionario(String nome, String cargo, int idade, double horarioEntrada, double horarioSaida, LocalDate dataContratacao) {
-        super();
+       
         this.nome = nome;
         this.cargo = cargo;
         this.setHorarioEntrada(horarioEntrada);
