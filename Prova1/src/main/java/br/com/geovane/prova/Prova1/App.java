@@ -104,7 +104,7 @@ public class App {
 			}
 		} while (!(horarioEntrada >= 0 && horarioEntrada < 24));
 
-		System.out.println("Digite o horário de entrada do funcionario");
+		System.out.println("Digite o horário de saída do funcionario");
 
 		do {
 			horarioSaida = Double.parseDouble(entrada.nextLine());

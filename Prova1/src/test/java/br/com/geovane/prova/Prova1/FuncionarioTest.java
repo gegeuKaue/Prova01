@@ -28,8 +28,7 @@ public class FuncionarioTest {
 		String nome = "Geovane Kaue Santos", cargo = "Estagiario";
 		int idade = 19;
 		double horarioEntrada = 9.0, horarioSaida = 16.0;
-		Funcionario funcionario = new
-				Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
+		Funcionario funcionario = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
 
 		assertEquals(nome, funcionario.getNome());
 		assertEquals(cargo, funcionario.getCargo());
@@ -80,7 +79,7 @@ public class FuncionarioTest {
 	@Order(3)
 	public void deverar_dar_erro_de_argumento_por_receber_um_horario_de_entrada_que_nao_for_entre_0_a_24() {
 		String nome = "Geovane Kaue Santos", cargo = "Estagiario";
-		int idade = -15;
+		int idade = 15;
 		double horarioEntrada = 25, horarioSaida = 16.0;
 		assertThrows(IllegalArgumentException.class, () -> {
 			Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
@@ -92,11 +91,11 @@ public class FuncionarioTest {
 	@Order(4)
 	public void deverar_dar_erro_de_argumento_por_receber_um_horario_de_saida_que_nao_for_entre_0_a_24() {
 		String nome = "Geovane Kaue Santos", cargo = "Estagiario";
-		int idade = -15;
-		double horarioEntrada = 9.0, horarioSaida = -1;
+		int idade = 15;
+		double horarioEntrada = 9.0, horarioSaida = -8;
 		assertThrows(IllegalArgumentException.class, () -> {
 			Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
-			fun.setHorarioEntrada(horarioEntrada);
+			fun.setHorarioEntrada(16);
 		});
 	}
 

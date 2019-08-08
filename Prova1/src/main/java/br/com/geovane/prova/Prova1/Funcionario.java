@@ -1,6 +1,5 @@
 package br.com.geovane.prova.Prova1;
 
-
 /**
  * The Class Funcionario.
  */
@@ -35,8 +34,8 @@ public class Funcionario {
 		this.nome = nome;
 		this.cargo = cargo;
 		this.setIdade(idade);
-		this.horarioEntrada = horarioEntrada;
-		this.horarioSaida = horarioSaida;
+		this.setHorarioEntrada(horarioEntrada);
+		this.setHorarioSaida(horarioSaida);
 	}
 
 	/**
@@ -178,8 +177,8 @@ public class Funcionario {
 	public void setHorarioEntrada(double horarioEntrada) {
 		if (horarioEntrada >= 0 && horarioEntrada < 24) {
 			this.horarioEntrada = horarioEntrada;
-		}
-		throw new IllegalArgumentException("Digite um horario entre 0h a 24h");
+		} else
+			throw new IllegalArgumentException("O horário deve ser entre 0h a 24h");
 	}
 
 	/**
@@ -197,10 +196,10 @@ public class Funcionario {
 	 * @param horarioSaida the new horario saida
 	 */
 	public void setHorarioSaida(double horarioSaida) {
-		if (horarioEntrada >= 0 && horarioEntrada < 24) {
+		if (horarioSaida >= 0 && horarioSaida < 24) {
 			this.horarioSaida = horarioSaida;
-		}
-		throw new IllegalArgumentException("O horario deve ser entre 0h a 24h");
+		} else
+			throw new IllegalArgumentException("O horário deve ser entre 0h a 24h");
 	}
 
 }
