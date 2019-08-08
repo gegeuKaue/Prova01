@@ -6,6 +6,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.Calendar;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -28,7 +30,7 @@ public class FuncionarioTest {
 		String nome = "Geovane Kaue Santos", cargo = "Estagiario";
 		int idade = 19;
 		double horarioEntrada = 9.0, horarioSaida = 16.0;
-		Funcionario funcionario = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
+		Funcionario funcionario = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida, Calendar.getInstance());
 
 		assertEquals(nome, funcionario.getNome());
 		assertEquals(cargo, funcionario.getCargo());
@@ -45,8 +47,8 @@ public class FuncionarioTest {
 		String nome = "Geovane Kaue Santos", cargo = "Estagiario";
 		int idade = 19;
 		double horarioEntrada = 9.0, horarioSaida = 16.0;
-		Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
-		Funcionario fun2 = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
+		Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida,Calendar.getInstance());
+		Funcionario fun2 = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida,Calendar.getInstance());
 		assertThat(fun.hashCode(), is(fun2.hashCode()));
 	}
 
@@ -58,9 +60,9 @@ public class FuncionarioTest {
 		String nome = "Geovane Kaue Santos", cargo = "Estagiario";
 		int idade = 28;
 		double horarioEntrada = 9.0, horarioSaida = 16.0;
-		Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
+		Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida,Calendar.getInstance());
 		// funcionario a baixo tem mais idade
-		Funcionario fun2 = new Funcionario(nome, cargo, idade + 6, horarioEntrada, horarioSaida);
+		Funcionario fun2 = new Funcionario(nome, cargo, idade + 6, horarioEntrada, horarioSaida,Calendar.getInstance());
 		assertThat(fun.hashCode(), is(not(fun2)));
 	}
 
@@ -73,7 +75,7 @@ public class FuncionarioTest {
 		double horarioEntrada = 9.0, horarioSaida = 16.0;
 
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
+			Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida,Calendar.getInstance());
 			fun.setIdade(18);
 		});
 	}
@@ -86,7 +88,7 @@ public class FuncionarioTest {
 		int idade = 15;
 		double horarioEntrada = 25, horarioSaida = 16.0;
 		assertThrows(IllegalArgumentException.class, () -> {
-			Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
+			Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida,Calendar.getInstance());
 			fun.setHorarioEntrada(horarioEntrada);
 		});
 	}
@@ -99,7 +101,7 @@ public class FuncionarioTest {
 		int idade = 15;
 		double horarioEntrada = 9.0, horarioSaida = -8;
 		assertThrows(IllegalArgumentException.class, () -> {
-			Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida);
+			Funcionario fun = new Funcionario(nome, cargo, idade, horarioEntrada, horarioSaida,Calendar.getInstance());
 			fun.setHorarioEntrada(16);
 		});
 	}
