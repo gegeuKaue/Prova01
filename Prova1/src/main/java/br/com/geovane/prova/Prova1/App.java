@@ -53,7 +53,7 @@ public class App {
             resp = Byte.parseByte(entrada.nextLine());
 
             System.out.println("-------------------------------------------------------");
-            Acao decisaoEnum = Acao.values()[resp-1];
+            Acao decisaoEnum = Acao.values()[resp - 1];
             switch (decisaoEnum) {
                 case CADASTRAR_FUNCIONARIO:
                     empresa.addFuncionario(adicionarFuncionario(entrada));

@@ -1,9 +1,17 @@
 package br.com.geovane.prova.Prova1;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class Funcionario.
+ *
+ * @author geovane.santos
+ */
 /**
  * The Class Funcionario.
  */
@@ -137,7 +145,7 @@ public class Funcionario {
      * @param dataContratacao the data contratacao
      */
     public Funcionario(String nome, String cargo, int idade, double horarioEntrada, double horarioSaida, LocalDate dataContratacao) {
-       
+
         this.nome = nome;
         this.cargo = cargo;
         this.setHorarioEntrada(horarioEntrada);
@@ -153,18 +161,7 @@ public class Funcionario {
      */
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
-        result = prime * result + ((dataContratacao == null) ? 0 : dataContratacao.hashCode());
-        long temp;
-        temp = Double.doubleToLongBits(horarioEntrada);
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(horarioSaida);
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        result = prime * result + idade;
-        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-        return result;
+        return HashCodeBuilder.reflectionHashCode(this);
     }
 
     /**
@@ -175,35 +172,7 @@ public class Funcionario {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Funcionario other = (Funcionario) obj;
-        if (cargo == null) {
-            if (other.cargo != null)
-                return false;
-        } else if (!cargo.equals(other.cargo))
-            return false;
-        if (dataContratacao == null) {
-            if (other.dataContratacao != null)
-                return false;
-        } else if (!dataContratacao.equals(other.dataContratacao))
-            return false;
-        if (Double.doubleToLongBits(horarioEntrada) != Double.doubleToLongBits(other.horarioEntrada))
-            return false;
-        if (Double.doubleToLongBits(horarioSaida) != Double.doubleToLongBits(other.horarioSaida))
-            return false;
-        if (idade != other.idade)
-            return false;
-        if (nome == null) {
-            if (other.nome != null)
-                return false;
-        } else if (!nome.equals(other.nome))
-            return false;
-        return true;
+        return EqualsBuilder.reflectionEquals(this, obj);
     }
 
     /**
@@ -213,32 +182,7 @@ public class Funcionario {
      */
     @Override
     public String toString() {
-        // FORMATACAO DA DATA
-         StringBuilder builder = new StringBuilder();
-
-        // NOME
-        builder.append("\tNome \t");
-        builder.append(this.nome);
-        builder.append("\n");
-        // Cargo
-        builder.append("\tCargo \t");
-        builder.append(this.cargo);
-        builder.append("\n");
-        // IDADE
-        builder.append("\tIdade \t");
-        builder.append(this.idade);
-        builder.append("\n");
-        // HORÁRIO
-        builder.append("\tHorário\t");
-        builder.append(this.horarioEntrada);
-        builder.append("h ás ");
-        builder.append(this.horarioSaida);
-        builder.append("h");
-        // DATA
-        builder.append("\n\tData de Contratacao:\t");
-        builder.append(this.dataContratacao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-
-        return builder.toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 
     /**
