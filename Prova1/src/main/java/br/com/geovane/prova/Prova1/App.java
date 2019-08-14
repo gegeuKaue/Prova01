@@ -87,12 +87,15 @@ public class App {
         LocalDate dataContratacao;
 
         Funcionario funcionario;
-        String nomeFuncionario, cargo;
+        String nomeFuncionario, cargo, cpf;
         int idade;
         double horarioEntrada;
         double horarioSaida;
         System.out.println("Digite o nome do funcionario");
         nomeFuncionario = entrada.nextLine();
+
+        System.out.println("Digite o CPF do funcionario");
+        cpf = entrada.nextLine();
 
         System.out.println("Digite o cargo do funcionario");
         cargo = entrada.nextLine();
@@ -135,8 +138,7 @@ public class App {
         ano = Integer.parseInt(entrada.nextLine());
 
         dataContratacao = LocalDate.of(ano, mes, dia);
-        funcionario = new Funcionario(nomeFuncionario, cargo, idade, horarioEntrada, horarioSaida, dataContratacao);
-
+        funcionario = new Funcionario(nomeFuncionario, cargo, idade, horarioEntrada, horarioSaida, dataContratacao, cpf);
         System.out.println("Funcionario cadastrado com sucesso!!!");
         return funcionario;
     }

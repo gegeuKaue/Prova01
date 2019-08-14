@@ -46,8 +46,8 @@ public class EmpresaTest {
     @Order(3)
     public void deverar_adicionar_empregado_na_lista_da_empresa() {
 
-        Funcionario fun = new Funcionario("Geovane Kaue", "estagio", 19, 9, 16, LocalDate.now());
-        Funcionario fun2 = new Funcionario("Geovane Kaue", "estagio", 19, 9, 16, LocalDate.now());
+        Funcionario fun = new Funcionario("Geovane Kaue", "estagio", 19, 9, 16, LocalDate.now(),"");
+        Funcionario fun2 = new Funcionario("Geovane Kaue", "estagio", 19, 9, 16, LocalDate.now(),"");
         empresa.addFuncionario(fun);
         empresa.addFuncionario(fun2);
         assertThat(empresa.getListFuncionario(), hasItems(fun, fun2));
@@ -83,7 +83,7 @@ public class EmpresaTest {
         Empresa empresa = new Empresa("Contmatic", "contmatic@contmatic.com", "9999999999999", "rua jaboticabeira", "Res. Flamboyant", "São Paulo", "08588145", 4);
         ;
         // assertTimeout(100,empresa.addFuncionario(funcionario) );
-        Funcionario funcionario = new Funcionario("Geovane Kaue Santos", "Estagiário", 19, 9.0, 16.0, LocalDate.now());
+        Funcionario funcionario = new Funcionario("Geovane Kaue Santos", "Estagiário", 19, 9.0, 16.0, LocalDate.now(),"");
         int i;
         for(i = 0 ; i < 1000 ; i++)
             empresa.addFuncionario(funcionario);

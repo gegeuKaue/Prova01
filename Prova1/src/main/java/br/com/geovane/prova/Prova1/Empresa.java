@@ -2,9 +2,14 @@ package br.com.geovane.prova.Prova1;
 
 import java.util.ArrayList;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.hibernate.validator.constraints.br.CNPJ;
+import org.jetbrains.annotations.NotNull;
 
 
 /**
@@ -15,18 +20,23 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class Empresa {
 
     /** The nome. */
+    @NotEmpty(message = "Não pode ser nulo")
     private String nome;
 
     /** The email. */
+    @Email
     private String email;
 
     /** The cnpj. */
+    @CNPJ
     private String cnpj;
 
     /** The endereco. */
+    @NotNull
     private Endereco endereco;
 
     /** The lista funcionario. */
+    @NotNull
     private ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
 
     /**
