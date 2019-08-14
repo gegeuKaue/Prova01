@@ -171,7 +171,6 @@ public class Empresa {
      * @return the list funcionario
      */
     public ArrayList<Funcionario> getListFuncionario() {
-
         return listaFuncionario;
     }
 
