@@ -1,8 +1,12 @@
 package br.com.geovane.prova.Prova1;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -11,33 +15,41 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.br.CNPJ;
 import org.jetbrains.annotations.NotNull;
 
-
+// TODO: Auto-generated Javadoc
 /**
  * The Class Empresa.
  *
  * @author geovane.santos
  */
 public class Empresa {
+    
+    /**
+     * Instantiates a new empresa.
+     */
+    public Empresa() {
+        // TODO Auto-generated constructor stub
+    }
 
     /** The nome. */
-    @NotEmpty(message = "Não pode ser nulo")
+    @Valid
+    @NotBlank(message = "Não pode ser nulo")
     private String nome;
 
     /** The email. */
-    @Email
+    @Email(message = "O email está inválido")
     private String email;
 
     /** The cnpj. */
-    @CNPJ
+    @CNPJ(message = "O CNPJ está invalido")
     private String cnpj;
 
     /** The endereco. */
-    @NotNull
-    private Endereco endereco;
+    @NotNull(value = "O endereço está vazio")
+    private Set<Endereco> enderecoSet;
 
     /** The lista funcionario. */
     @NotNull
-    private ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
+    private List<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
 
     /**
      * Instantiates a new empresa.
@@ -45,18 +57,15 @@ public class Empresa {
      * @param nome the nome
      * @param email the email
      * @param cnpj the cnpj
-     * @param nomeEndereco the nome endereco
-     * @param bairro the bairro
-     * @param cidade the cidade
-     * @param cep the cep
-     * @param numero the numero
+     * @param enderecoSet the endereco set
      */
-    public Empresa(String nome, String email, String cnpj, String nomeEndereco, String bairro, String cidade, String cep, int numero) {
-
+    public Empresa(@NotEmpty(message = "Não pode ser nulo") String nome, @Email(message = "O email está invalido") String email, @CNPJ(message = "O CNPJ está invalido") String cnpj,
+                   Set<Endereco> enderecoSet) {
         this.nome = nome;
         this.email = email;
         this.cnpj = cnpj;
-        endereco = new Endereco(nomeEndereco, bairro, cidade, cep, numero);
+        this.enderecoSet = enderecoSet;
+
     }
 
     /**
@@ -136,12 +145,22 @@ public class Empresa {
      * Mostrar funcionario.
      */
     public void mostrarFuncionario() {
-        if (this.listaFuncionario.size() == 0) {
-            System.out.println("Não tem funcionario cadastrado!!!");
-            return;
-        }
+        // Preconditions.
+        listaVazia(this.listaFuncionario);
         for(Funcionario funcionario : this.listaFuncionario)
             System.out.println(funcionario + "\n");
+    }
+
+    /**
+     * Lista vazia.
+     *
+     * @param list the list
+     */
+    private void listaVazia(List<Funcionario> list) {
+        if (list.size() == 0 || list == null) {
+            throw new ListEmptyOrNullException("A lista esta vazia!!!");
+        }
+
     }
 
     /**
@@ -180,26 +199,26 @@ public class Empresa {
      *
      * @return the list funcionario
      */
-    public ArrayList<Funcionario> getListFuncionario() {
+    public List<Funcionario> getListFuncionario() {
         return listaFuncionario;
     }
 
     /**
-     * Sets the endereco.
+     * Gets the endereco set.
      *
-     * @param endereco the new endereco
+     * @return the endereco set
      */
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public Set<Endereco> getEnderecoSet() {
+        return enderecoSet;
     }
 
     /**
-     * Gets the endereco.
+     * Sets the endereco set.
      *
-     * @return the endereco
+     * @param enderecoSet the new endereco set
      */
-    public Endereco getEndereco() {
-        return this.endereco;
+    public void setEnderecoSet(Set<Endereco> enderecoSet) {
+        this.enderecoSet = enderecoSet;
     }
 
 }

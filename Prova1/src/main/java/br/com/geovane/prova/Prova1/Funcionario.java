@@ -1,16 +1,22 @@
 package br.com.geovane.prova.Prova1;
 
-import java.time.LocalDate;
+import java.util.Set;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.br.CPF;
+import org.joda.time.LocalDate;
+
+import static com.google.common.base.Preconditions.checkArgument;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -27,7 +33,7 @@ public class Funcionario {
     private String nome;
 
     /** The cargo. */
-    @NotEmpty(message = "O cargo não deve ser vázio.")
+    @NotBlank(message = "O cargo não deve ser vázio.")
     private String cargo;
 
     /** The idade. */
@@ -51,6 +57,88 @@ public class Funcionario {
     /** The cpf. */
     @CPF(message = "O CPF está inválido")
     private String cpf;
+
+    /** The telefone. */
+    @NotEmpty(message = "O Telefone nao pode ser nulo")
+    private Set<TelefoneDDD> ddd;
+
+    /** The telefone set. */
+    @NotBlank(message = "Telefone está invalido.")
+    private Set<String> telefoneSet;
+
+    /** The email. */
+    @Email(message = "O email está invalido.")
+    private String email;
+
+    /**
+     * Instantiates a new funcionario.
+     *
+     * @param nome the nome
+     * @param cargo the cargo
+     * @param idade the idade
+     * @param horarioEntrada the horario entrada
+     * @param horarioSaida the horario saida
+     * @param dataContratacao the data contratacao
+     * @param cpf the cpf
+     * @param ddd the ddd
+     * @param email the email
+     * @param telefoneSet the telefone set
+     */
+    public Funcionario(@NotEmpty(message = "Nome não deve ser vázio.") String nome, @NotEmpty(message = "O cargo não deve ser vázio.") String cargo,
+                       @Min(value = 0, message = "A idade não pode ser negativa.") int idade,
+                       @Min(value = -1, message = "O horário não deve ser negativo") @Max(value = 24, message = "O horário não deve ser maior que 24") double horarioEntrada,
+                       @Min(value = -1, message = "O horário não deve ser negativo") @Max(value = 24, message = "O horário não deve ser maior que 24") double horarioSaida,
+                       @Past(message = "A data de contratação não deve ser maior que a atual") LocalDate dataContratacao, @CPF(message = "O CPF está inválido") String cpf,
+                       @NotEmpty(message = "O Telefone nao pode ser nulo") @Size(min = 11, max = 11, message = "O telefone está incompleto") Set<TelefoneDDD> ddd,
+                       @Email(message = "O email está invalido.") String email, Set<String> telefoneSet) {
+        super();
+        this.nome = nome;
+        this.cargo = cargo;
+        this.idade = idade;
+        this.horarioEntrada = horarioEntrada;
+        this.horarioSaida = horarioSaida;
+        this.dataContratacao = dataContratacao;
+        this.cpf = cpf;
+        this.ddd = ddd;
+        this.email = email;
+        this.telefoneSet = telefoneSet;
+    }
+
+    /**
+     * Gets the telefone.
+     *
+     * @return the telefone
+     */
+    public Set<TelefoneDDD> getDDD() {
+        return this.ddd;
+    }
+
+    /**
+     * Sets the telefone.
+     *
+     * @param telefone the new telefone
+     */
+    public void setDDD(Set<TelefoneDDD> telefone) {
+        this.ddd = telefone;
+    }
+
+    /**
+     * Gets the email.
+     *
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Sets the email.
+     *
+     * @param email the new email
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     /**
      * Gets the cpf.
@@ -121,11 +209,8 @@ public class Funcionario {
      * @param idade the new idade
      */
     public void setIdade(@Min(value = 0, message = "A idade não pode ser negativa.") int idade) {
-        if (idade > 0) {
-            this.idade = idade;
-        } else
-            throw new IllegalArgumentException("Não existe idade negativo");
-
+        checkArgument(idade > 0, "Não existe idade negativa.");
+        this.idade = idade;
     }
 
     /**
@@ -143,10 +228,9 @@ public class Funcionario {
      * @param horarioEntrada the new horario entrada
      */
     public void setHorarioEntrada(@Min(value = -1, message = "O horário não deve ser negativo") @Max(value = 24, message = "O horário não deve ser maior que 24") double horarioEntrada) {
-        if (horarioEntrada >= 0 && horarioEntrada < 24) {
-            this.horarioEntrada = horarioEntrada;
-        } else
-            throw new IllegalArgumentException("O horário deve ser entre 0h a 24h");
+        checkArgument(horarioEntrada < 0 && horarioEntrada > 24, "O horário deve ser entre 0h a 24h");
+        this.horarioEntrada = horarioEntrada;
+
     }
 
     /**
@@ -164,37 +248,15 @@ public class Funcionario {
      * @param horarioSaida the new horario saida
      */
     public void setHorarioSaida(@Min(value = -1, message = "O horário não deve ser negativo") @Max(value = 24, message = "O horário não deve ser maior que 24") double horarioSaida) {
-        if (horarioSaida >= 0 && horarioSaida < 24) {
-            this.horarioSaida = horarioSaida;
-        } else
-            throw new IllegalArgumentException("O horário deve ser entre 0h a 24h");
+        checkArgument(horarioEntrada < 0 && horarioEntrada > 24, "O horário deve ser entre 0h a 24h");
+        this.horarioSaida = horarioSaida;
     }
 
     /**
      * Instantiates a new funcionario.
      *
-     * @param nome the nome
-     * @param cargo the cargo
-     * @param idade the idade
-     * @param horarioEntrada the horario entrada
-     * @param horarioSaida the horario saida
-     * @param dataContratacao the data contratacao
-     * @param cpf the cpf
+     * @return the int
      */
-    public Funcionario(@NotEmpty(message = "Nome não deve ser vázio.") String nome, @NotEmpty(message = "O cargo não deve ser vázio.") String cargo,
-                       @Min(value = 0, message = "A idade não pode ser negativa.") int idade,
-                       @Min(value = -1, message = "O horário não deve ser negativo") @Max(value = 24, message = "O horário não deve ser maior que 24") double horarioEntrada,
-                       @Min(value = -1, message = "O horário não deve ser negativo") @Max(value = 24, message = "O horário não deve ser maior que 24") double horarioSaida,
-                       @Past(message = "A data de contratação não deve ser maior que a atual") LocalDate dataContratacao, @CPF(message = "O CPF está inválido") String cpf) {
-        super();
-        this.nome = nome;
-        this.cargo = cargo;
-        this.idade = idade;
-        this.horarioEntrada = horarioEntrada;
-        this.horarioSaida = horarioSaida;
-        this.dataContratacao = dataContratacao;
-        this.cpf = cpf;
-    }
 
     /**
      * Hash code.

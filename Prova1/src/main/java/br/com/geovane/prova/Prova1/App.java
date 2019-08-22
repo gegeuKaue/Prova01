@@ -1,7 +1,10 @@
 package br.com.geovane.prova.Prova1;
 
-import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
+
+import org.joda.time.LocalDate;
 
 /**
  * 
@@ -10,8 +13,8 @@ import java.util.Scanner;
  */
 public class App {
     public static void main(String[] args) {
-
         // dados dos sistema
+
         byte resp;
         Scanner entrada = new Scanner(System.in);
 
@@ -19,39 +22,48 @@ public class App {
         Empresa empresa;
         String nome, email, cnpj, nomeEndereco, bairro, cidade, cep;
         int numero;
-
+        Estado estado;
+        Set<Endereco> enderecoSet = new HashSet<Endereco>();
         System.out.println("Digite o nome da empresa");
         nome = entrada.nextLine();
 
         System.out.println("Digite o email da empresa");
 
         email = entrada.nextLine();
-
-        System.out.println("Digite o cnpj da empresa");
-        cnpj = entrada.nextLine();
-
-        System.out.println("Digite o cep da empresa");
-        cep = entrada.nextLine();
-
-        System.out.println("Digite o nome da rua da empresa");
-        nomeEndereco = entrada.nextLine();
-
-        System.out.println("Digite o bairro da empresa");
-        bairro = entrada.nextLine();
-
-        System.out.println("Digite o cidade da empresa");
-        cidade = entrada.nextLine();
-
-        System.out.println("Digite o número da rua da empresa");
-        numero = Integer.parseInt(entrada.nextLine());
-
-        empresa = new Empresa(nome, email, cnpj, nomeEndereco, bairro, cidade, cep, numero);
-
         do {
+            System.out.println("Digite o cnpj da empresa");
+            cnpj = entrada.nextLine();
+
+            System.out.println("Digite o cep da empresa");
+            cep = entrada.nextLine();
+
+            System.out.println("Digite o cep da empresa(Somente a sigla)");
+            estado = estadoEscolhido(entrada.nextLine());
+
+            System.out.println("Digite o nome da rua da empresa");
+            nomeEndereco = entrada.nextLine();
+
+            System.out.println("Digite o bairro da empresa");
+            bairro = entrada.nextLine();
+
+            System.out.println("Digite o cidade da empresa");
+            cidade = entrada.nextLine();
+
+            System.out.println("Digite o número da rua da empresa");
+            numero = Integer.parseInt(entrada.nextLine());
+
+            enderecoSet.add(new Endereco(nomeEndereco, bairro, cidade, cep, numero, estado));
+            System.out.println("Você deseja adicionar mais endereços?(s/n)");
+        } while (entrada.nextLine().equalsIgnoreCase("s"));
+
+        empresa = new Empresa(nome, email, cnpj, enderecoSet);
+
+        do
+
+        {
             menu();
 
             resp = Byte.parseByte(entrada.nextLine());
-
             System.out.println("-------------------------------------------------------");
             Acao decisaoEnum = Acao.values()[resp - 1];
             switch (decisaoEnum) {
@@ -59,6 +71,7 @@ public class App {
                     empresa.addFuncionario(adicionarFuncionario(entrada));
                     break;
                 case INFO_TODOS_FUNCIONARIO:
+
                     empresa.mostrarFuncionario();
                     break;
                 case INFO_EMPRESA:
@@ -76,6 +89,10 @@ public class App {
         entrada.close();
     }
 
+    private static Estado estadoEscolhido(String estadoString) {
+        return Estado.valueOf(estadoString.toUpperCase());
+    }
+
     public static void menu() {
         System.out.println("Digite o número correspondente o que se deseja fazer no sistema");
         System.out.println("\n1 - Cadastrar funcionario" + "\n2 - Ver Informações de todos os funcionario" + "\n3 - Ver Informação da empresa" + "\n4 - Sair");
@@ -84,13 +101,16 @@ public class App {
     public static Funcionario adicionarFuncionario(Scanner entrada) {
         // dados dos funcionario
         int dia, mes, ano;
-        LocalDate dataContratacao;
-
-        Funcionario funcionario;
-        String nomeFuncionario, cargo, cpf;
+        LocalDate dataContratacao = null;
         int idade;
         double horarioEntrada;
         double horarioSaida;
+
+        Funcionario funcionario;
+        String nomeFuncionario, cargo, cpf, email;
+        Set<TelefoneDDD> telefoneDDDSet = new HashSet<>();
+        Set<String> telefoneSet = new HashSet<>();
+
         System.out.println("Digite o nome do funcionario");
         nomeFuncionario = entrada.nextLine();
 
@@ -99,6 +119,14 @@ public class App {
 
         System.out.println("Digite o cargo do funcionario");
         cargo = entrada.nextLine();
+
+        System.out.println("Digite o email do funcionario");
+        email = entrada.nextLine();
+        do {
+            System.out.println("Digite o DDD do telefone;");
+            telefoneDDDSet.add(dddUsuario(entrada.nextLine()));
+            System.out.println("Você deseja continuar ?(s/n)");
+        } while (entrada.nextLine().equalsIgnoreCase("s"));
 
         System.out.println("Digite a idade do funcionario");
         do {
@@ -137,10 +165,14 @@ public class App {
         System.out.println("Digite o ano de contratação do funcionario");
         ano = Integer.parseInt(entrada.nextLine());
 
-        dataContratacao = LocalDate.of(ano, mes, dia);
-        funcionario = new Funcionario(nomeFuncionario, cargo, idade, horarioEntrada, horarioSaida, dataContratacao, cpf);
+        dataContratacao = new LocalDate(ano, dia, mes);
+        funcionario = new Funcionario(nomeFuncionario, cargo, idade, horarioEntrada, horarioSaida, dataContratacao, cpf, telefoneDDDSet, email, telefoneSet);
         System.out.println("Funcionario cadastrado com sucesso!!!");
         return funcionario;
+    }
+
+    private static TelefoneDDD dddUsuario(String nextLine) {
+        return TelefoneDDD.valueOf(nextLine.toUpperCase());
     }
 
 }

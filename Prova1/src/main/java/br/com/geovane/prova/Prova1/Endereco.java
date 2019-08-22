@@ -1,5 +1,10 @@
 package br.com.geovane.prova.Prova1;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -11,19 +16,29 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class Endereco {
 
     /** The nome. */
+    @NotBlank(message = "O nome não pode ser vazio.")
     private String nome;
 
     /** The bairro. */
+    @NotBlank(message = "O nome do bairro não pode ser vázio.")
     private String bairro;
 
     /** The cidade. */
+    @NotBlank(message = "O nome da cidade não deve ser vázio.")
     private String cidade;
 
     /** The cep. */
+    @NotBlank(message = "O CEP não pode está vázio.")
+    @Pattern(regexp = "\\d+", message = "Digite um cep valido")
     private String cep;
 
     /** The numero. */
+    @Min(value = -1, message = "O número não deve ser negativo.")
     private int numero;
+
+    /** The estado. */
+    @NotEmpty
+    private Estado estado;
 
     /**
      * Instantiates a new endereco.
@@ -33,15 +48,18 @@ public class Endereco {
      * @param cidade the cidade
      * @param cep the cep
      * @param numero the numero
+     * @param estado the estado
      */
-    public Endereco(String nome, String bairro, String cidade, String cep, int numero) {
+    public Endereco(@NotEmpty(message = "O nome não pode ser vazio.") String nome, @NotEmpty(message = "O nome do bairro não pode ser vázio.") String bairro,
+                    @NotEmpty(message = "O nome da cidade não deve ser vázio.") String cidade, @NotEmpty(message = "O CEP não pode está vázio.") String cep,
+                    @Min(value = -1, message = "O número não deve ser negativo.") int numero, Estado estado) {
 
         this.nome = nome;
         this.bairro = bairro;
         this.cidade = cidade;
         this.cep = cep;
         this.numero = numero;
-
+        this.estado = estado;
     }
 
     /**
@@ -52,6 +70,24 @@ public class Endereco {
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
+    }
+
+    /**
+     * Gets the estado.
+     *
+     * @return the estado
+     */
+    public Estado getEstado() {
+        return estado;
+    }
+
+    /**
+     * Sets the estado.
+     *
+     * @param estado the new estado
+     */
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     /**
