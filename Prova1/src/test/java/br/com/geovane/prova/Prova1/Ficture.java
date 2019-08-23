@@ -24,14 +24,12 @@ public class Ficture {
         try {
             Fixture.of(Funcionario.class).addTemplate("valido", new Rule() {
                 {
-                    // String nome, String cargo, int idade, double horarioEntrada, double horarioSaida, LocalDate dataContratacao
-                    add("nome", random("Geovane", "Aline", "Jatobar", "Kaue"));
+                     add("nome", random("Geovane", "Aline", "Jatobar", "Kaue"));
                     add("cargo", random("Estagiario", "Analista", "Direitor"));
                     add("idade", random(Integer.class, range(18, 79)));
                     add("horarioEntrada", random(Double.class, range(7, 9)));
                     add("horarioSaida", random(Double.class, range(16, 18)));
-                    // int year, int month, int dayOfMonth
-
+                   
                     int ano = ((int) (2000 + Math.random() * (20)));
                     Integer dia = ((int) (1 + Math.random() * (31)));
                     Integer mes = ((int) (1 + Math.random() * (11)));
@@ -64,13 +62,11 @@ public class Ficture {
 
         Fixture.of(Funcionario.class).addTemplate("invalido", new Rule() {
             {
-                // String nome, String cargo, int idade, double horarioEntrada, double horarioSaida, LocalDate dataContratacao
                 add("nome", random("Geovane", "Aline Azevedo Barbosa", "Jatobar", "Kaue"));
                 add("cargo", random("Estagiario", "Analista", "Direitor"));
                 add("idade", random(Integer.class, range(-79, -8)));
                 add("horarioEntrada", random(Double.class, range(23, 59)));
                 add("horarioSaida", random(Double.class, range(-25, 18)));
-                // int year, int month, int dayOfMonth
                 int ano = ((int) (2000 + Math.random() * (20)));
                 Integer dia = ((int) (1 + Math.random() * (25)));
                 Integer mes = ((int) (1 + Math.random() * (11)));

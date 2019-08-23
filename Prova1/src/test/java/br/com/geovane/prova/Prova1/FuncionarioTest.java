@@ -22,11 +22,8 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import br.com.six2six.fixturefactory.Fixture;
 
-//@RunWith(value = JUnit4.class)
-
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FuncionarioTest {
-    // assertEquals and assertThat
 
     @Test
     @BeforeAll
@@ -68,7 +65,6 @@ public class FuncionarioTest {
 
     }
 
-    // assertThat and Before
     @Test
     @BeforeEach
     @DisplayName("Retorna verdadeiro se o hashCode e o Equals são iguais")
@@ -79,9 +75,7 @@ public class FuncionarioTest {
         assertTrue(fun.equals(fun2));
     }
 
-    // AssertThat and After
     @Test
-    // @AfterEach
     public void deverar_retornar_falso_se_o_hashCode_caso_as_classe_seja_diferente() {
         Ficture.funcionarioNovoValido();
         Ficture.funcionarioNovoInvalidoIdade();
@@ -91,7 +85,6 @@ public class FuncionarioTest {
         assertThat(funcionario.hashCode(), is(not(funcionario2)));
     }
 
-    // Exception Testing
     @Test
     @Order(2)
     public void deverar_dar_erro_de_argumento_por_receber_idade_negativa() {
@@ -102,7 +95,6 @@ public class FuncionarioTest {
         });
     }
 
-    // Exception Testing
     @Test
     @Order(3)
     public void deverar_dar_erro_de_argumento_por_receber_um_horario_de_entrada_que_nao_for_entre_0_a_24() {
@@ -113,7 +105,6 @@ public class FuncionarioTest {
         });
     }
 
-    // Exception Testing
     @Test
     @Order(4)
     public void deverar_dar_erro_de_argumento_por_receber_um_horario_de_saida_que_nao_for_entre_0_a_24() {

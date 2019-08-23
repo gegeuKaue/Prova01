@@ -13,12 +13,9 @@ import org.joda.time.LocalDate;
  */
 public class App {
     public static void main(String[] args) {
-        // dados dos sistema
-
         byte resp;
         Scanner entrada = new Scanner(System.in);
 
-        // dados da empresa e do endereco
         Empresa empresa;
         String nome, email, cnpj, nomeEndereco, bairro, cidade, cep;
         int numero;
@@ -99,7 +96,6 @@ public class App {
     }
 
     public static Funcionario adicionarFuncionario(Scanner entrada) {
-        // dados dos funcionario
         int dia, mes, ano;
         LocalDate dataContratacao = null;
         int idade;

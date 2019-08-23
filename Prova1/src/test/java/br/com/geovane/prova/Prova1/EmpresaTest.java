@@ -25,8 +25,7 @@ public class EmpresaTest {
         Ficture.EmpresaNovoValido();
     }
 
-    // Assertions
-    @Test
+     @Test
     @Order(1)
     public void deverar_o_HashCode_retornar_verdadeiro() {
         Empresa empresa = Fixture.from(Empresa.class).gimme("empresaValida");
@@ -34,7 +33,6 @@ public class EmpresaTest {
         assertEquals(true, empresa.hashCode() == empresa2.hashCode());
     }
 
-    // // Assertions
     @Test
     @Order(2)
     public void deverar_o_HashCode_retornar_falso() {
@@ -44,7 +42,6 @@ public class EmpresaTest {
         assertFalse(empresa.hashCode() == empresa2.hashCode());
     }
 
-    // // AssertThat
     @Test
     @Order(3)
     public void deverar_adicionar_empregado_na_lista_da_empresa() {
@@ -56,8 +53,6 @@ public class EmpresaTest {
         assertThat(empresa.getListFuncionario(), hasItems(fun, fun2));
     }
 
-    //
-    // Timeout
     @Order(4)
     @Test
     public void deverar_adicionar_1000_funcionario_em_100_milesimo() {

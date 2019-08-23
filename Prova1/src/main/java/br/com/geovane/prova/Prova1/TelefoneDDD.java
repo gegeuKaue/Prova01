@@ -271,5 +271,5 @@ public enum TelefoneDDD {
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
     }
-    
+
 }
