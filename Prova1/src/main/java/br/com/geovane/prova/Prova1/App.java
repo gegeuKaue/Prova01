@@ -24,10 +24,10 @@ public class App {
         int numero;
         Estado estado;
         Set<Endereco> enderecoSet = new HashSet<Endereco>();
-        System.out.println("Digite o nome da empresa");
+        System.out.println("Digite o nome da empresa.");
         nome = entrada.nextLine();
 
-        System.out.println("Digite o email da empresa");
+        System.out.println("Digite o email da empresa.");
 
         email = entrada.nextLine();
         do {
@@ -37,7 +37,7 @@ public class App {
             System.out.println("Digite o cep da empresa");
             cep = entrada.nextLine();
 
-            System.out.println("Digite o cep da empresa(Somente a sigla)");
+            System.out.println("Digite o sigla do estado da empresa");
             estado = estadoEscolhido(entrada.nextLine());
 
             System.out.println("Digite o nome da rua da empresa");
@@ -172,7 +172,7 @@ public class App {
     }
 
     private static TelefoneDDD dddUsuario(String nextLine) {
-        return TelefoneDDD.valueOf(nextLine.toUpperCase());
+        return TelefoneDDD.valueOf("DDD" + nextLine.toUpperCase());
     }
 
 }

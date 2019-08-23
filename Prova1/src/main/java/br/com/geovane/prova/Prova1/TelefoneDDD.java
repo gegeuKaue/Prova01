@@ -1,5 +1,7 @@
 package br.com.geovane.prova.Prova1;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Enum TelefoneDDD.
@@ -209,7 +211,7 @@ public enum TelefoneDDD {
 
     /** The ddd. */
     private String regiao;
-    
+
     /** The ddd. */
     private int ddd;
 
@@ -260,4 +262,14 @@ public enum TelefoneDDD {
         this.ddd = ddd;
     }
 
+    /**
+     * To string.
+     *
+     * @return the string
+     */
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
+    
 }

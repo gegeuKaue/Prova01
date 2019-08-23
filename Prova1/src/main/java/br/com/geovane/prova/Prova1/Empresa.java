@@ -22,13 +22,6 @@ import org.jetbrains.annotations.NotNull;
  * @author geovane.santos
  */
 public class Empresa {
-    
-    /**
-     * Instantiates a new empresa.
-     */
-    public Empresa() {
-        // TODO Auto-generated constructor stub
-    }
 
     /** The nome. */
     @Valid

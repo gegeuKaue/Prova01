@@ -45,8 +45,8 @@
 			<scope>test</scope>
 		</dependency>
 
-		
-		
+
+
 		<dependency>
 			<groupId>com.fatboyindustrial.gson-jodatime-serialisers</groupId>
 			<artifactId>gson-jodatime-serialisers</artifactId>
@@ -58,7 +58,19 @@
 			<artifactId>fixture-factory</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.5.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<version>1.0.1</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId> org.apache.commons </groupId>
 			<artifactId> commons-lang3 </artifactId>
