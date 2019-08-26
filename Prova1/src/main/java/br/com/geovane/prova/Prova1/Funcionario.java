@@ -14,6 +14,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.br.CPF;
+import org.jetbrains.annotations.NotNull;
 import org.joda.time.LocalDate;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -59,11 +60,11 @@ public class Funcionario {
     private String cpf;
 
     /** The telefone. */
-    @NotEmpty(message = "O Telefone nao pode ser nulo")
+    @NotNull(value = "O Telefone nao pode ser nulo")
     private Set<TelefoneDDD> ddd;
 
     /** The telefone set. */
-    @NotBlank(message = "Telefone está invalido.")
+    @NotNull(value = "Telefone está invalido.")
     private Set<String> telefoneSet;
 
     /** The email. */

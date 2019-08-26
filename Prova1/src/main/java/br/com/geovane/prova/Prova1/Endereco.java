@@ -8,6 +8,7 @@ import javax.validation.constraints.Pattern;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.jetbrains.annotations.NotNull;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -37,7 +38,7 @@ public class Endereco {
     private int numero;
 
     /** The estado. */
-    @NotEmpty
+    @NotNull(value = "O estado não pode ser nulo.")
     private Estado estado;
 
     /**
