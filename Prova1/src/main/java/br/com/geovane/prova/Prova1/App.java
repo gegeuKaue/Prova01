@@ -13,7 +13,8 @@ import org.joda.time.LocalDate;
  */
 public class App {
     public static void main(String[] args) {
-        byte resp;
+
+        byte resp; 
         Scanner entrada = new Scanner(System.in);
 
         Empresa empresa;
